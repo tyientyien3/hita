@@ -67,3 +67,6 @@ gem "devise"
 #bootstrap
 gem "bootstrap-sass", "~> 3.4.1"
 gem "jquery-rails"
+
+# Adds: kaminari for pagenations
+gem "kaminari", "~> 1.1.1"
