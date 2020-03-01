@@ -1,15 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hita</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Hita</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <%# HEADER %>
+  <header>
+    <div class="container-fluid" style="background-color: #ffd700;">
+      <div class="logo navbar-left">
+        <%= link_to "HITA", root_path, class: "navbar-brand" %>
+      </div>
+
+      <% if user_signed_in? %>
+
+      <span class="u h7 text-white strong">
+        ようこそ！<%= current_user.username %>さん！
+      </span>
+
+      <ul class="nav navbar navbar-nav navbar-right">
+        <li class="nav-item">
+          <%= link_to "TOP",  root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ABOUT",  root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "MY PAGE",  root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト",  destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      </ul>
+
+      <% else %>
+
+      <span class="u h7 text-white strong">
+        ようこそ！ゲストさん！
+      </span>
+
+      <ul class="nav navbar navbar-nav navbar-right">
+        <li class="nav-item">
+          <%= link_to "TOP",  root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ABOUT",  root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "LOG IN", user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "SIGN UP", new_user_registration_path, class: "nav-link" %>
+        </li>
+      </ul>
+
+      <!-- 検索フォーム -->
+      <ul class="nav navbar navbar-nav navbar-right">
+        <form class="form-inline">
+          <input class="form-control mr-sm-1" type="search" placeholder="Search">
+          <button class="btn btn-primary" type="submit">検索</button>
+        </form>
+      </ul>
+      <%#  %>
+
+      <% end %>
+    </div>
+  </header>
+
+
+  <%# MAIN %>
+  <main>
+    <div class="yield">
+      <%= yield %>
+    </div>
+  </main>
+
+  <%# FOOTER %>
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        <p class="text-center">© 2020 HITA</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>

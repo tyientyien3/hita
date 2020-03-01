@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";
+@import "bootstrap";    
+
+body {
+  background-color: #ffd700; 
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+
+.field {
+  height: 100px;
+}
