@@ -1,2 +1,8 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>このユーザーについて</h1>
+
+<h2>User info</h2>
+
+<%= attachment_image_tag @user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "img-rounded pull-left profile-img", fallback: "no_image.jpg" %>
+
+<%= @user.username %>
+<%= @user.user_status %>
