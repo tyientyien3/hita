@@ -9,4 +9,6 @@ class User < ApplicationRecord
     "日本在住（海外経験あり）": 1,
     "海外在住": 2,
   }
+
+  attachment :profile_image
 end
