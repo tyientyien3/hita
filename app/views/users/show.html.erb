@@ -4,15 +4,29 @@
     <div class="col-md-6 col-md-offset-3">
 
       <h1>このユーザーについて</h1>
-
+      <%#　未実装 if @user = current_user ↓のボタンが出現する %>
+      <div class="text-right">
+        <%= link_to '編集する', edit_user_path(@user.id), class: "btn btn-primary" %>
+      </div>
       <h2>User info</h2>
 
       <%= attachment_image_tag @user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "img-rounded pull-left profile-img", fallback: "no_image.jpg" %>
-
-      <%= @user.username %>
-      <%= @user.user_status %>
+      <table>
+        <tr>
+          <th>name</th>
+          <th> <%= @user.username %></th>
+        </tr>
+        <tr>
+          <th>ステータス</th>
+          <th><%= @user.user_status %></th>
+        </tr>
+        <tr>
+          <th><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></th>
+        </tr>
+      </table>
     </div>
   </div>
+
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
@@ -30,7 +44,7 @@
   <%#　未実装 質問一覧 %>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h2>このユーザーへの質問</h2>
+      <h2>質問一覧</h2>
       <div style="border: 1px solid #40e0d0; padding: 5px; border-radius: 10px 10px 0 0; background: #40e0d0;">□タイトル
       </div>
       <div style="border: 1px solid #40e0d0; padding: 10px; border-radius: 0 0 10px 10px; background: #ffffff;">
