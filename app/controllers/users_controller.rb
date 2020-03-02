@@ -23,7 +23,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def confirm
+  end
+
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path, notice: "Your account was successfully destroyed."
   end
 
   private

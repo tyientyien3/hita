@@ -40,6 +40,8 @@
       <%= f.submit 'Update User' %>
       <%= link_to '戻る', user_path(@user), class: "btn btn-primary" %>
       <% end %>
+      <br>
+      <%= link_to "アカウントを削除する",user_path(@user), class: "btn btn-danger btn-block", method: :delete, "data-confirm" => "本当にアカウントを削除しますか？" %>
     </div>
   </div>
 </div>
