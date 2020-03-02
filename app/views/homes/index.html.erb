@@ -1,2 +1,16 @@
-<h1>Homes#index</h1>
-<p>Find me in app/views/homes/index.html.erb</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-4">
+
+    <div class="country">
+      国を選択 <select id="select_a"></select>
+    </div>
+    <div class="region">
+      都市を選択 <select id="select_b"></select>
+    </div>
+    <div class="area">
+      地域を選択 <select id="select_c"></select>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'test.js' %>
