@@ -3,9 +3,11 @@
 
 <%# 地域一覧 %>
 <h3><%=@region.region_name %> の地域選択</h3>
-<% @areas.each do |f| %>
+<% @areas.each do |area| %>
 <div>
-  <%= f.area_name %>
+  <%= link_to area_path(area.id) do %>
+  <%= area.area_name %>
+  <% end %>
 </div>
 <% end %>
 
@@ -19,8 +21,10 @@
 </ul>
 
 <%#　質問一覧 %>
+<h3>質問一覧</h3>
 
 
 
 
 <%#　ユーザー一覧 %>
+<h3>ユーザー一覧</h3>
