@@ -35,7 +35,7 @@
         <%= @user.introduction %>
       </div>
       <%#　未実装 question new ページに遷移する %>
-      <%= link_to root_path, class:'btn btn-primary' do %>
+      <%= link_to   new_user_question_path(@user), class:'btn btn-primary' do %>
       <%= @user.username %>さんに質問する
       <% end %>
     </div>
