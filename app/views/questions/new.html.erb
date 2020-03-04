@@ -1,2 +1,18 @@
-<h1>Questions#new</h1>
-<p>Find me in app/views/questions/new.html.erb</p>
+<h2><%= @user.username %>　さんへの質問</h2>
+<% if @question.errors.any? %>
+<div class="alert alert-warning">
+  <ul>
+    <% @question.errors.full_messages.each do |message| %>
+    <li><%= message %> error </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= form_for(@question, :url => {:controller => 'questions', :action => 'create'}) do |f| %>
+<div>Title</div>
+<%= f.text_area :question, size: "40x10" %>
+<%= f.submit '質問する',class: "btn btn-primary btn-lg" %>
+<%= link_to "戻る", new_user_question_path(@user),class: "btn btn-danger btn-lg" %>
+</li>
+<% end %>
+</div>
