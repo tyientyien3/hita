@@ -25,6 +25,13 @@ class QuestionsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def destroy
+    question = Question.find(params[:id])
+    question.destroy
+    @user = User.find(params[:user_id])
+    redirect_to user_path(@user), notice: "Your address was successfully destroyed."
+  end
+
   private
 
   def question_params
