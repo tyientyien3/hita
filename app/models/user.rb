@@ -11,4 +11,8 @@ class User < ApplicationRecord
   }
 
   attachment :profile_image
+
+  #エイリアス
+  has_many :questioner, foreign_key: "questioner_id", class_name: "Question" #質問者
+  has_many :questionee, foreign_key: "questionee_id", class_name: "Question" #回答者
 end

@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
     if @question.save
       flash[:success] = "Book was successfully created."
       # binding.pry
-      redirect_to _path(@question.questionee_id, @question)
+      redirect_to user_question_path(@question.questionee_id, @question)
     else
       render :new
     end

@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   #devise
   devise_for :users
   #users routing
-  resources :users, only: [:show, :edit, :update, :destroy]
+  resources :users, only: [:edit, :update, :destroy]
   #国/都市/地域 routing
   resources :countries, only: [:show]
   resources :regions, only: [:show]
   resources :areas, only: [:show]
+  # question routing (nested to user/show)
+  resources :users, only: [:show] do
+    resources :questions, only: [:new, :show, :create, :update, :destroy]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
