@@ -1,15 +1,11 @@
   <div class="question">
-    <p>質問内容</p>
+    <p>質問</p>
     <%= @question.question %>
   </div>
 
-
-  <div class="questioner">
-    <p>質問者</p>
-    <%= @question.questioner_id %>
+  <div class="answer">
+    <p>回答</p>
+    <%= @question.answer %>
   </div>
 
-  <div class="questionee">
-    <p>回答者</p>
-    <%= @question.questionee_id %>
-  </div>
+  <%= link_to "戻る",  user_path(@user.id), class:'btn btn-primary' %>
