@@ -12,7 +12,7 @@
 <div>Title</div>
 <%= f.text_area :question, size: "40x10" %>
 <%= f.submit '質問する',class: "btn btn-primary btn-lg" %>
-<%= link_to "戻る", new_user_question_path(@user),class: "btn btn-danger btn-lg" %>
+<%= link_to "戻る", user_path(@user) ,class: "btn btn-danger btn-lg" %>
 </li>
 <% end %>
 </div>
