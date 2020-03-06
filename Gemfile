@@ -70,3 +70,7 @@ gem "jquery-rails"
 
 # Adds: kaminari for pagenations
 gem "kaminari", "~> 1.1.1"
+
+# Adds: refile
+gem "refile", require: "refile/rails", github: "manfe/refile"
+gem "refile-mini_magick"

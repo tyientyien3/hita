@@ -1,2 +1,60 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <h1>このユーザーについて</h1>
+      <%#　未実装 if @user = current_user ↓のボタンが出現する %>
+      <div class="text-right">
+        <%= link_to '編集する', edit_user_path(@user.id), class: "btn btn-primary" %>
+      </div>
+      <h2>User info</h2>
+
+      <%= attachment_image_tag @user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "img-rounded pull-left profile-img", fallback: "no_image.jpg" %>
+      <table>
+        <tr>
+          <th>name</th>
+          <th> <%= @user.username %></th>
+        </tr>
+        <tr>
+          <th>ステータス</th>
+          <th><%= @user.user_status %></th>
+        </tr>
+        <tr>
+          <th><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></th>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>自己紹介</h2>
+      <div style="padding: 40px; margin-bottom: 10px; border: 5px double #333333; border-radius: 10px;">
+        <%= @user.introduction %>
+      </div>
+      <%#　未実装 question new ページに遷移する %>
+      <%= link_to   new_user_question_path(@user), class:'btn btn-primary' do %>
+      <%= @user.username %>さんに質問する
+      <% end %>
+    </div>
+  </div>
+
+  <%#　質問一覧 %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2>質問一覧</h2>
+      <div class="question">
+        <% @questions.each do | question | %>
+        <%= link_to   user_question_path(question.questionee_id, question.id) do %>
+        <div class="question_box">
+          <span><%= question.question %></span>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= stylesheet_link_tag 'users' %>
