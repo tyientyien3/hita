@@ -2,14 +2,15 @@
   <div class="col-md-6 col-md-offset-4">
 
     <div class="country">
+      <input type="hidden" value="<%= @countries %>" class="country_names" />
       国を選択 <select id="select_a"></select>
     </div>
+
     <div class="region">
+      <input type="hidden" value="<%= @regions %>" class="region_names" />
       都市を選択 <select id="select_b"></select>
     </div>
-    <div class="area">
-      地域を選択 <select id="select_c"></select>
-    </div>
+
   </div>
 </div>
 

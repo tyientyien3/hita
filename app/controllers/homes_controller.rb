@@ -1,7 +1,14 @@
 class HomesController < ApplicationController
   def index
-    @country_id = params[:country_id]
-    @region_id = params[:region_id]
-    @area_id = params[:area_id]
+    @countries = []
+    @regions = []
+    Country.all.each do |country|
+      @countries.push(country.country_name)
+      @temp = []
+      country.regions.each do |region|
+        @temp.push(region.region_name)
+      end
+      @regions.push(@temp)
+    end
   end
 end
