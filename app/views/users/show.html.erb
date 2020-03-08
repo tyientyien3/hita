@@ -21,7 +21,8 @@
           <th><%= @user.user_status %></th>
         </tr>
         <tr>
-          <th><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></th>
+          <th><span class="glyphicon glyphicon-map-marker" aria-hidden="true">
+              <%= @country.country_name %></span></th>
         </tr>
       </table>
     </div>
@@ -34,7 +35,7 @@
       <div style="padding: 40px; margin-bottom: 10px; border: 5px double #333333; border-radius: 10px;">
         <%= @user.introduction %>
       </div>
-      <%#　未実装 question new ページに遷移する %>
+      <%# question new ページに遷移 %>
       <%= link_to   new_user_question_path(@user), class:'btn btn-primary' do %>
       <%= @user.username %>さんに質問する
       <% end %>
