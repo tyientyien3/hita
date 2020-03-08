@@ -3,16 +3,17 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @countries = []
-    @regions = []
+    @regions_name = []
     Country.all.each do |country|
       @countries.push(country.country_name)
-      @temp = []
+      @temp_names = []
       country.regions.each do |region|
-        @temp.push(region.region_name)
+        @temp_names.push({ "id": region.id, "name": region.region_name }.to_json)
+        # @temp_names.push(region.region_name)
       end
-      @regions.push(@temp)
+      @regions_name.push(@temp_names)
     end
-    puts @regions
+    puts @regions_name
     super
   end
 

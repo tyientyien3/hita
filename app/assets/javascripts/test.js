@@ -1,5 +1,7 @@
 $(function() {
+  // 文字列
 var region_names = $('.region_names').val();
+// 文字列 => 配列
 var b_options = JSON.parse(region_names);
 // console.log(b_options);
   
@@ -11,8 +13,13 @@ var b_options = JSON.parse(region_names);
   $select_a.change(function(e) {
     var selected_a = $select_a.val();
     $('#user_region_id option').remove();
+    // value = 文字列
     b_options[selected_a - 1].forEach(function(value) {
-      var $option_tag = $('<option>').val(value).text(value);
+      //　文字列 => 配列
+      console.log(JSON.parse(value));
+      reg = JSON.parse(value);
+
+      var $option_tag = $('<option>').val(reg["id"]).text(reg["name"]);
       $select_b.append($option_tag);
     });
   });
