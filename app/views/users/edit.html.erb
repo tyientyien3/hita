@@ -32,18 +32,39 @@
       <%= f.select :user_status, User.user_statuses.keys.to_a %>
     </div>
   </div>
-  <%# ここに国/都市/地域編集をセレクトボックスで実装予定 %>
 
-  <br>
-  <br>
-  <br>
 
-  <h4>Introduction</h4>
-  <%= f.text_area :introduction, size: "20x10", class: "form-control" %>
-  <br><br>
-  <%= f.submit 'Update User' %>
-  <%= link_to '戻る', user_path(@user), class: "btn btn-primary" %>
-  <% end %>
-  <br>
-  <%= link_to "アカウントを削除する",user_path(@user), class: "btn btn-danger", method: :delete, "data-confirm" => "本当にアカウントを削除しますか？" %>
+  <table>
+    <tr>
+      <th>
+        <%# 国選択　%>
+        <div class="field">
+          <%= f.label :"国" %><br />
+          <input type="hidden" value="<%= @regions_name %>" class="region_names" />
+          <%= f.collection_select :country_id, Country.all, :id, :country_name %>
+        </div>
+      </th>
+      <th>
+        <%# 都市選択　%>
+        <div class="field">
+          <%= f.label :"都市" %><br />
+          <%= f.collection_select :region_id, [], :id, :region_name %>
+        </div>
+      </th>
+    </tr>
+    <table>
+
+
+      <br>
+      <br>
+      <br>
+
+      <h4>Introduction</h4>
+      <%= f.text_area :introduction, size: "20x10", class: "form-control" %>
+      <br><br>
+      <%= f.submit 'Update User' %>
+      <%= link_to '戻る', user_path(@user), class: "btn btn-primary" %>
+      <% end %>
+      <br>
+      <%= link_to "アカウントを削除する",user_path(@user), class: "btn btn-danger", method: :delete, "data-confirm" => "本当にアカウントを削除しますか？" %>
 </div>
