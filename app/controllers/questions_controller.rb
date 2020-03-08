@@ -10,10 +10,11 @@ class QuestionsController < ApplicationController
     #質問者のuser_id
     @question.questioner = current_user
     #回答者のuser_id
-    @question.questionee = User.find(params[:user_id])
+    @question.questionee = @user.id
+    #回答者のcountry_id
+    @question.country_id = @user.country_id
     if @question.save
       flash[:success] = "Book was successfully created."
-      # binding.pry
       redirect_to user_question_path(@question.questionee_id, @question)
     else
       render :new
@@ -35,6 +36,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:question, :answer)
+    params.require(:question).permit(:question, :answer, :country_id)
   end
 end
