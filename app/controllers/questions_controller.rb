@@ -10,9 +10,12 @@ class QuestionsController < ApplicationController
     #質問者のuser_id
     @question.questioner = current_user
     #回答者のuser_id
-    @question.questionee = @user.id
+    @question.questionee = @user
     #回答者のcountry_id
     @question.country_id = @user.country_id
+    #回答者のcountry_id
+    @question.region_id = @user.region_id
+    binding.pry
     if @question.save
       flash[:success] = "Book was successfully created."
       redirect_to user_question_path(@question.questionee_id, @question)
