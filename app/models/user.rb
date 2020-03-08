@@ -17,4 +17,5 @@ class User < ApplicationRecord
   has_many :questionee, foreign_key: "questionee_id", class_name: "Question" #回答者
 
   belongs_to :country
+  belongs_to :region
 end

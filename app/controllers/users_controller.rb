@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @questions = @user.questionee
     @country = @user.country
+    @region = @user.region
   end
 
   def edit
