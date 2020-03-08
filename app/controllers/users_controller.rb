@@ -2,10 +2,25 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @questions = @user.questionee
+    @country = @user.country
+    @region = @user.region
   end
 
   def edit
     @user = User.find(params[:id])
+
+    @countries = []
+    @regions_name = []
+    Country.all.each do |country|
+      @countries.push(country.country_name)
+      @temp_names = []
+      country.regions.each do |region|
+        @temp_names.push({ "id": region.id, "name": region.region_name }.to_json)
+      end
+      @regions_name.push(@temp_names)
+    end
+    puts @regions_name
+
     # PERMITTED ONLY CURRENT USER
     #if @user != current_user
     #redirect_to user_path(current_user)
