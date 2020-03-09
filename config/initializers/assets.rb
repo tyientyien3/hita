@@ -12,7 +12,7 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 Rails.application.config.assets.precompile += %w( test.js )
 
 #users ページ　css
-Rails.application.config.assets.precompile += %w( users.scss )
+Rails.application.config.assets.precompile += %w( question_boxes.scss )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
