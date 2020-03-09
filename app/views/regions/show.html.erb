@@ -34,9 +34,9 @@
       <%= link_to   user_question_path(question.questionee_id, question.id) do %>
       <div class="question_box">
         <% if question.answer == nil%>
-        <%= "回答済み" %>
-        <% else%>
         <%= "未回答" %>
+        <% else%>
+        <%= "回答済み" %>
         <% end %>
         <br>
         <span><%= question.question %></span>
