@@ -1,0 +1,48 @@
+<div class="container">
+
+  <div class="row1">
+    <h1 class="text1">Welcome to HITA</h1>
+    <br>
+    <p class="text2">東南アジア　どんな暮らしができるか聞いてみよう！</p>
+    <br><br>
+    <div class="col-md-6 col-md-offset-1">
+      <div class="img1">
+        <%= image_tag('frog.png') %>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="explain">
+        <h1><strong>H</strong>ands</h1>
+        <h1><strong>I</strong>n</h1>
+        <h1><strong>T</strong>he</h1>
+        <h1><strong>A</strong>ir</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row2">
+    <div class="col-md-6 col-md-offset-1">
+      海外に住んでみたいけどどんな生活感なのか分からず
+      一歩が踏み出せない。そんなときにはHITAで現地在住者に質問ができます！
+      <br>
+      <%= link_to 'About', homes_about_path, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag('rabbit.png') %>
+    </div>
+  </div>
+</div>
+
+<div class="row3">
+  <h1 class="text1">東南アジア国一覧</h1>
+  <div class="col-md-6 col-md-offset-3">
+    <%# 未完成 %>
+    <% @countries.each do | country | %>
+    <%= link_to country_path(country) do %>
+    <span><%= country.country_name %></span>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= stylesheet_link_tag 'homes' %>

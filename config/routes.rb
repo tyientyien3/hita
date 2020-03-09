@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   #ルート設定
   root "homes#index"
+  #about ページ
+  get "homes/about"
   #devise
   devise_for :users, :controllers => {
                        :registrations => "users/registrations",
