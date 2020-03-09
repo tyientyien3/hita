@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>未回答　質問一覧</h2>
+      <div class="question">
+        <% @no_answers.each do | na_question | %>
+        <%= link_to user_question_path(@user, @user) do %>
+        <div class="question_box">
+          <span><%= na_question.question %></span>
+        </div>
+        <% end %>
+        <% end %>
+        <%= link_to "戻る", user_path(@user) ,class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= stylesheet_link_tag 'question_boxes' %>

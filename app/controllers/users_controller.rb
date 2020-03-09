@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @no_answers = Question.where(answer: nil).where(questionee: @user).count
   end
 
+  def no_answer
+    @user = User.find(params[:id])
+    @no_answers = Question.where(answer: nil).where(questionee: @user)
+  end
+
   def edit
     @user = User.find(params[:id])
     @countries = []

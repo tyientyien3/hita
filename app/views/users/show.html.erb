@@ -10,7 +10,7 @@
       </div>
       <%# 未回答 %>
       <h3>未回答の質問　　
-        <%= link_to root_path do %>
+        <%= link_to no_answer_user_path(@user) do %>
         <%= @no_answers %>
         <% end %>件
       </h3>
@@ -69,5 +69,5 @@
       </div>
     </div>
   </div>
-
-  <%= stylesheet_link_tag 'question_boxes' %>
+</div>
+<%= stylesheet_link_tag 'question_boxes' %>
