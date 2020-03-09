@@ -11,4 +11,7 @@ class HomesController < ApplicationController
       @regions.push(@temp)
     end
   end
+
+  def about
+  end
 end
