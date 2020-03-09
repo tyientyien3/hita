@@ -15,7 +15,8 @@ Rails.application.config.assets.precompile += %w( test.js )
 Rails.application.config.assets.precompile += %w( question_boxes.scss )
 #question/show の css
 Rails.application.config.assets.precompile += %w( questions.scss )
-
+#home画面の　css
+Rails.application.config.assets.precompile += %w( homes.scss )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
