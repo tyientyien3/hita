@@ -3,9 +3,11 @@
 
 <%# 都市一覧 %>
 <h3><%=@country.country_name %> の都市一覧</h3>
-<% @regions.each do |f| %>
+<% @regions.each do |region| %>
 <div>
-  <%= f.region_name %>
+  <%= link_to region_path(region.id) do %>
+  <%= region.region_name %>
+  <% end %>
 </div>
 <% end %>
 
@@ -19,8 +21,37 @@
 </ul>
 
 <%#　質問一覧 %>
-
-
-
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>質問一覧</h2>
+    <div class="question">
+      <% @questions.each do | question | %>
+      <%= link_to   user_question_path(question.questionee_id, question.id) do %>
+      <div class="question_box">
+        <span><%= question.question %></span>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <%#　ユーザー一覧 %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>ユーザー一覧</h2>
+    <div class="user">
+      <% @users.each do | user | %>
+      <%= link_to   user_path(user) do %>
+      <div class="user_box">
+        <div class="user_box_head">
+          <span><%= user.country.country_name %>|<%= user.region.region_name %></span>
+        </div>
+        <span><%= user.username %></span>
+        <%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size: "50x50" %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,13 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+  <div class="question">
+    <p>質問</p>
+    <%= @question.question %>
+  </div>
+
+  <div class="answer">
+    <p>回答</p>
+    <%= @question.answer %>
+  </div>
+
+  <%= link_to "戻る",  user_path(@user.id), class:'btn btn-primary' %>
+
+  <%= link_to "この質問を削除する",  user_question_path(@question.questionee_id, @question), method: :delete, class:'btn btn-danger' %>

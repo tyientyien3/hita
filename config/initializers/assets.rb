@@ -11,6 +11,9 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 #test.js 要削除
 Rails.application.config.assets.precompile += %w( test.js )
 
+#users ページ　css
+Rails.application.config.assets.precompile += %w( users.scss )
+
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

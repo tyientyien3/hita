@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_071152) do
+ActiveRecord::Schema.define(version: 2020_03_08_112428) do
 
   create_table "areas", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 2020_03_01_071152) do
   create_table "questions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "questioner_id"
+    t.integer "questionee_id"
+    t.text "question"
+    t.text "answer"
+    t.integer "country_id", null: false
+    t.integer "region_id", null: false
+    t.index ["questionee_id"], name: "index_questions_on_questionee_id"
+    t.index ["questioner_id"], name: "index_questions_on_questioner_id"
   end
 
   create_table "regions", force: :cascade do |t|

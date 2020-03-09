@@ -1,2 +1,57 @@
-<h1>Regions#show</h1>
-<p>Find me in app/views/regions/show.html.erb</p>
+<h1><%=@region.region_name %> のページ</h1>
+
+
+<%# 地域一覧 %>
+<h3><%=@region.region_name %> の地域選択</h3>
+<% @areas.each do |area| %>
+<div>
+  <%= link_to area_path(area.id) do %>
+  <%= area.area_name %>
+  <% end %>
+</div>
+<% end %>
+
+<%# 検索機能（形だけ） %>
+<h3>検索機能</h3>
+<ul class="nav navbar navbar-nav">
+  <form class="form-inline">
+    <input class="form-control mr-sm-1" type="search" placeholder="Search">
+    <button class="btn btn-primary" type="submit">検索</button>
+  </form>
+</ul>
+
+<%#　質問一覧 %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>質問一覧</h2>
+    <div class="question">
+      <% @questions.each do | question | %>
+      <%= link_to   user_question_path(question.questionee_id, question.id) do %>
+      <div class="question_box">
+        <span><%= question.question %></span>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%#　ユーザー一覧 %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>ユーザー一覧</h2>
+    <div class="user">
+      <% @users.each do | user | %>
+      <%= link_to   user_path(user) do %>
+      <div class="user_box">
+        <div class="user_box_head">
+          <span><%= user.country.country_name %>|<%= user.region.region_name %></span>
+        </div>
+        <span><%= user.username %></span>
+        <%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size: "50x50" %>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

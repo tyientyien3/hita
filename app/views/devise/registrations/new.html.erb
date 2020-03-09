@@ -11,7 +11,22 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <%# 練習 %>
+      <%# 国選択　%>
+      <div class="field">
+        <%= f.label :"国" %><br />
+        <input type="hidden" value="<%= @regions_name %>" class="region_names" />
+        <%= f.collection_select :country_id, Country.all, :id, :country_name, :prompt =>"国を選択してください。" %>
+      </div>
+
+
+      <%# 都市選択　%>
+      <div class="field">
+        <%= f.label :"都市" %><br />
+        <%= f.collection_select :region_id, [], :id, :region_name, :prompt =>"都市を選択してください。" %>
+      </div>
+
+
+      <%# 在住ステータス %>
       <div class="field">
         <%= f.label :"在住ステータス" %><br />
         <%= f.select :user_status, User.user_statuses.keys.to_a %>
