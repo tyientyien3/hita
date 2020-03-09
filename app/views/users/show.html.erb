@@ -8,6 +8,12 @@
       <div class="text-right">
         <%= link_to '編集する', edit_user_path(@user.id), class: "btn btn-primary" %>
       </div>
+      <%# 未回答 %>
+      <h3>未回答の質問　　
+        <%= link_to no_answer_user_path(@user) do %>
+        <%= @no_answers %>
+        <% end %>件
+      </h3>
       <h2>User info</h2>
 
       <%= attachment_image_tag @user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "img-rounded pull-left profile-img", fallback: "no_image.jpg" %>
@@ -50,6 +56,12 @@
         <% @questions.each do | question | %>
         <%= link_to   user_question_path(question.questionee_id, question.id) do %>
         <div class="question_box">
+          <% if question.answer == nil%>
+          <%= "未回答" %>
+          <% else%>
+          <%= "回答済み" %>
+          <% end %>
+          <br>
           <span><%= question.question %></span>
         </div>
         <% end %>
@@ -57,5 +69,5 @@
       </div>
     </div>
   </div>
-
-  <%= stylesheet_link_tag 'question_boxes' %>
+</div>
+<%= stylesheet_link_tag 'question_boxes' %>
