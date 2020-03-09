@@ -39,3 +39,20 @@
   background: #ffffff;
   text-align: center;
 }
+
+.region{
+  width: 110px;
+  position: relative;
+  margin-top: 30px;
+  padding: 0.5em 1em;
+  border-top: solid 2px #333;
+  border-bottom: solid 2px #333;
+  background-color: #f4f4f4;
+  float: left;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}

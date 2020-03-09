@@ -1,24 +1,32 @@
-<h1><%=@country.country_name %> のページ</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1><%=@country.country_name %> のページ</h1>
 
 
-<%# 都市一覧 %>
-<h3><%=@country.country_name %> の都市一覧</h3>
-<% @regions.each do |region| %>
-<div>
-  <%= link_to region_path(region.id) do %>
-  <%= region.region_name %>
-  <% end %>
+      <%# 都市一覧 %>
+      <h3><%=@country.country_name %> の都市一覧</h3>
+      <% @regions.each do |region| %>
+      <div class="clearfix">
+        <div class="region">
+          <%= link_to region_path(region.id) do %>
+          <%= region.region_name %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+
+      <%# 検索機能（形だけ） %>
+      <h3>Search</h3>
+      <ul class="nav navbar navbar-nav">
+        <form class="form-inline">
+          <input class="form-control mr-sm-1" type="search" placeholder="Search">
+          <button class="btn btn-primary" type="submit">検索</button>
+        </form>
+      </ul>
+    </div>
+  </div>
 </div>
-<% end %>
-
-<%# 検索機能（形だけ） %>
-<h3>検索機能</h3>
-<ul class="nav navbar navbar-nav">
-  <form class="form-inline">
-    <input class="form-control mr-sm-1" type="search" placeholder="Search">
-    <button class="btn btn-primary" type="submit">検索</button>
-  </form>
-</ul>
 
 <%#　質問一覧 %>
 <div class="row">
@@ -28,6 +36,12 @@
       <% @questions.each do | question | %>
       <%= link_to   user_question_path(question.questionee_id, question.id) do %>
       <div class="question_box">
+        <% if question.answer == nil%>
+        <%= "回答済み" %>
+        <% else%>
+        <%= "未回答" %>
+        <% end %>
+        <br>
         <span><%= question.question %></span>
       </div>
       <% end %>
