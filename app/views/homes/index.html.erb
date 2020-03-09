@@ -1,32 +1,38 @@
 <div class="container">
 
   <div class="row1">
-    <h1 class="text-center">Welcome to HITA</h1>
+    <h1 class="text1">Welcome to HITA</h1>
+    <br>
+    <p class="text2">東南アジア　どんな暮らしができるか聞いてみよう！</p>
     <br><br>
     <div class="col-md-8 col-md-offset-2">
+      <div class="img1">
+        <%= image_tag('frog.png') %>
+      </div>
       <div class="explain">
         <h1><strong>H</strong>ands</h1>
         <h1><strong>I</strong>n</h1>
         <h1><strong>T</strong>he</h1>
         <h1><strong>A</strong>ir</h1>
       </div>
-      <div class="img1">
-        <%= image_tag('frog.png') %>
-      </div>
     </div>
   </div>
 
   <div class="row2">
     <div class="col-md-6 col-md-offset-3">
-
+      海外に住んでみたいけどどんな生活感なのか分からず
+      一歩が踏み出せない。そんなときにはHITAで現地在住者に質問ができます！
+      <%= image_tag('rabbit.png') %>
+      <%= link_to 'About', root_path, class: "btn btn-default" %>
     </div>
   </div>
+</div>
 
-  <div class="row3">
-    <div class="col-md-6 col-md-offset-3">
-
-    </div>
+<div class="row3">
+  <h1 class="text1">東南アジア国一覧</h1>
+  <div class="col-md-6 col-md-offset-3">
   </div>
+</div>
 </div>
 
 <%= stylesheet_link_tag 'homes' %>
