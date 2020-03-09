@@ -1,0 +1,41 @@
+.question{
+  margin: 0 auto;
+}
+
+.question_box{
+  width: 250px;
+  height: 150px;
+  margin: 20px;
+  border: 2px solid #40e0d0;
+  padding: 10px;
+  border-radius:
+  10px 10px 10px 10px;
+  background: #ffffff;
+  float: left;
+  color: black;
+}
+
+.user_box{
+  width: 250px;
+  height: 100px;
+  margin: 20px;
+  border: 2px solid #9079b6;
+  // padding: 10px;
+  border-radius:
+  10px 10px 10px 10px;
+  background: #ffffff;
+  float: left;
+  color: black;
+  text-align: center;
+}
+
+.user_box_head{
+  width: 246px;
+  height: 40px;
+  border-bottom: 2px solid #9079b6;
+  color: black;
+  padding: 5px; 
+  border-radius: 8px 8px 0 0; 
+  background: #ffffff;
+  text-align: center;
+}
