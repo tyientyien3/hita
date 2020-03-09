@@ -4,11 +4,11 @@ class UsersController < ApplicationController
     @questions = @user.questionee
     @country = @user.country
     @region = @user.region
+    @no_answers = Question.where(answer: nil).where(questionee: @user).count
   end
 
   def edit
     @user = User.find(params[:id])
-
     @countries = []
     @regions_name = []
     Country.all.each do |country|
