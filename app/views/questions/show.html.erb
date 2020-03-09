@@ -9,8 +9,10 @@
       <div class="answer">
         <p><%= @question.answer %></p>
       </div>
+      <% if current_user == @question.questionee %>
+      <%= link_to "編集する",   edit_user_question_path(@question.questionee_id, @question), class:'btn btn-primary' %>
+      <% end %>
       <%= link_to "戻る",  user_path(@user.id), class:'btn btn-primary' %>
-      <%= link_to "この質問を削除する",  user_question_path(@question.questionee_id, @question), method: :delete, class:'btn btn-danger' %>
     </div>
   </div>
 </div>

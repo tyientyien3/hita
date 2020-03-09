@@ -15,7 +15,6 @@ class QuestionsController < ApplicationController
     @question.country_id = @user.country_id
     #回答者のcountry_id
     @question.region_id = @user.region_id
-    binding.pry
     if @question.save
       flash[:success] = "Book was successfully created."
       redirect_to user_question_path(@question.questionee_id, @question)
@@ -27,6 +26,24 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @user = User.find(params[:user_id])
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+    @user = User.find(params[:user_id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      # 未実装　質問のショー
+      redirect_to action: "show", notice: "You have updatad user successfully."
+    else
+      # ERROR MASSAGE
+      flash[:alert] = "Save Error!"
+      # RENDER VARIABLES
+      render :show
+    end
   end
 
   def destroy

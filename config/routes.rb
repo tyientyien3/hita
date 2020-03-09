@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root "homes#index"
   #devise
   devise_for :users, :controllers => {
-            :registrations => "users/registrations",
-          }
+                       :registrations => "users/registrations",
+                     }
   #users routing
   resources :users, only: [:edit, :update, :destroy]
   #国/都市/地域 routing
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :areas, only: [:show]
   # question routing (nested to user/show)
   resources :users, only: [:show] do
-    resources :questions, only: [:new, :show, :create, :update, :destroy]
+    resources :questions, only: [:new, :show, :create, :edit, :update, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
