@@ -4,11 +4,12 @@
     <div class="col-md-6 col-md-offset-3">
 
       <h1>このユーザーについて</h1>
-      <%#　未実装 if @user = current_user ↓のボタンが出現する %>
+      <% if @user == current_user %>
       <div class="text-right">
         <%= link_to '編集する', edit_user_path(@user.id), class: "btn btn-primary" %>
       </div>
-      <%# 未回答 %>
+      <% end %>
+      <%# 未回答件数 %>
       <h3>未回答の質問　　
         <%= link_to no_answer_user_path(@user) do %>
         <%= @no_answers %>

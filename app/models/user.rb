@@ -4,12 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #ユーザーステータス enum
   enum user_status: {
     "日本在住": 0,
     "日本在住（海外経験あり）": 1,
     "海外在住": 2,
   }
 
+  #バリデーション
+  validates :username, length: { in: 2..20 }
+  validates :introduction, length: { maximum: 200 }
+  validates :country_id, presence: true
+  #画像
   attachment :profile_image
 
   #エイリアス

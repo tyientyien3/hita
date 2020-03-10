@@ -1,6 +1,8 @@
 class Question < ApplicationRecord
+  #バリデーション
+  validates :question, :answer, length: { in: 2..300 }
+
   #いいね機能
-  belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :liked_users, through: :favorites, source: :user
 

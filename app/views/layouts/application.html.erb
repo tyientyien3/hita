@@ -20,6 +20,7 @@
             <span>HITA</span>
           </div>
           <nav class="nav navbar navbar-nav navbar-right">
+            <%# ログイン中  %>
             <% if user_signed_in? %>
             <p class="navbar-text">
               Hello,<%= current_user.username %>
@@ -34,17 +35,13 @@
               <%= link_to "MY PAGE",  user_path(current_user.id), class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログアウト",  destroy_user_session_path, method: :delete, class: "nav-link" %>
+              <%= link_to "LOG OUT",  destroy_user_session_path, method: :delete, class: "nav-link" %>
             </li>
-
-
             <% else %>
-
+            <%# 未ログイン %>
             <p class="navbar-text">
               ようこそ!ゲストさん！
             </p>
-
-
             <li class="nav-item">
               <%= link_to "TOP",  root_path, class: "nav-link" %>
             </li>
@@ -55,17 +52,8 @@
               <%= link_to "LOG IN", user_session_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "LOG OUT", new_user_registration_path, class: "nav-link" %>
+              <%= link_to "SIGN UP", new_user_registration_path, class: "nav-link" %>
             </li>
-
-            <!-- 検索フォーム -->
-            <ul class="nav navbar navbar-nav navbar-right">
-              <form class="form-inline">
-                <input class="form-control mr-sm-1" type="search" placeholder="Search">
-                <button class="btn btn-primary" type="submit">検索</button>
-              </form>
-            </ul>
-            <%#  %>
             <% end %>
           </nav>
         </div>
