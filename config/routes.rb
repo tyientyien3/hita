@@ -20,5 +20,10 @@ Rails.application.routes.draw do
       get :no_answer
     end
   end
+  #いいね機能
+  resources :questions, only: [:show] do
+    resource :favorites, only: [:create, :destroy]
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
