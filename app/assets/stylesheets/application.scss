@@ -14,7 +14,11 @@
  */
 
  @import "bootstrap-sprockets";
-@import "bootstrap";    
+@import "bootstrap";  
+
+header {
+  border-bottom: solid 2px black;
+  }
 
 body {
   background-color: white; 
@@ -22,7 +26,29 @@ body {
 }
 
 
-
 .field {
   height: 100px;
+}
+
+
+.navbar li a {
+  float: left;
+  line-height: 50px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #111;
+}
+
+
+.logo span {
+  font-family: 'Parisienne', cursive;
+  font-size: 30px;
+  line-height: 50px;
+  font-weight: 600;
+  color:  #111;
+}
+
+
+.navbar-text {
+  float: left;
 }
