@@ -14,13 +14,16 @@
  */
 
  @import "bootstrap-sprockets";
-@import "bootstrap";    
+@import "bootstrap";  
+
+header {
+  border-bottom: solid 2px black;
+  }
 
 body {
   background-color: white; 
   font-family: 'Courier New', Courier, monospace;
 }
-
 
 
 .field {
