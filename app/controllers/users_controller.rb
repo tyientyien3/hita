@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    #@question = Question.find(params[:id])
     @questions = @user.questionee
     @country = @user.country
     @region = @user.region
