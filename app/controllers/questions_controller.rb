@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @user = User.find(params[:user_id])
     @question = Question.new
@@ -42,7 +44,7 @@ class QuestionsController < ApplicationController
       # ERROR MASSAGE
       flash[:alert] = "Save Error!"
       # RENDER VARIABLES
-      render :show
+      render :edit
     end
   end
 

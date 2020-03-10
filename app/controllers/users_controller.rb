@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @user = User.find(params[:id])
     #@question = Question.find(params[:id])
@@ -15,6 +17,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    # CURRENT USER のみ編集可能
+    if @user != current_user
+      redirect_to user_path(current_user)
+    end
     @countries = []
     @regions_name = []
     Country.all.each do |country|
@@ -26,11 +32,6 @@ class UsersController < ApplicationController
       @regions_name.push(@temp_names)
     end
     puts @regions_name
-
-    # PERMITTED ONLY CURRENT USER
-    #if @user != current_user
-    #redirect_to user_path(current_user)
-    #end
   end
 
   def update

@@ -1,4 +1,6 @@
 class RegionsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @region = Region.find(params[:id])
     @questions = @region.questions
