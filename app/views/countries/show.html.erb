@@ -7,23 +7,28 @@
       <%# 都市一覧 %>
       <h3><%=@country.country_name %> の都市一覧</h3>
       <% @regions.each do |region| %>
-      <div class="clearfix">
-        <div class="region">
-          <%= link_to region_path(region.id) do %>
-          <%= region.region_name %>
-          <% end %>
-        </div>
+      <div class="region">
+        <%= link_to region_path(region.id) do %>
+        <%= region.region_name %>
+        <% end %>
       </div>
       <% end %>
 
-      <%# 検索機能（形だけ） %>
-      <h3>Search</h3>
-      <ul class="nav navbar navbar-nav">
-        <form class="form-inline">
-          <input class="form-control mr-sm-1" type="search" placeholder="Search">
-          <button class="btn btn-primary" type="submit">検索</button>
-        </form>
-      </ul>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="search">
+            <%# 検索機能（形だけ） %>
+            <h3>Search</h3>
+            <ul class="nav navbar navbar-nav">
+              <form class="form-inline">
+                <input class="form-control mr-sm-1" type="search" placeholder="Search">
+                <button class="btn btn-primary" type="submit">検索</button>
+              </form>
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -36,13 +41,12 @@
       <% @questions.each do | question | %>
       <%= link_to   user_question_path(question.questionee_id, question.id) do %>
       <div class="question_box">
+
         <% if question.answer == nil%>
-        <%= "未回答" %>
+        <button type="button" class="btn btn-info btn-sm"><%= "未回答" %></button>
         <% else%>
-        <%= "回答済み" %>
+        <button type="button" class="btn btn-primary btn-sm"><%= "回答済" %></button>
         <% end %>
-        <br>
-        <span><%= question.question %></span>
 
         <%# いいね機能 %>
         <% if current_user.already_liked?(question) %>
@@ -50,6 +54,9 @@
         <% else %>
         <%= link_to "",  question_favorites_path(question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= question.liked_users.count %>
         <% end %>
+
+        <br>
+        <span><%= question.question %></span>
 
       </div>
       <% end %>
