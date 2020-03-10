@@ -18,4 +18,14 @@ class User < ApplicationRecord
 
   belongs_to :country
   belongs_to :region
+
+  #いいね機能
+  has_many :liked_questions, through: :favorites, source: :question
+  has_many :favorites, dependent: :destroy
+  has_many :questions, dependent: :destroy
+
+  # すでにいいねしているかの判定
+  def already_liked?(question)
+    self.favorites.exists?(question_id: question.id)
+  end
 end

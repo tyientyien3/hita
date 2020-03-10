@@ -8,6 +8,12 @@
       <div>回答内容</div>
       <div class="answer">
         <p><%= @question.answer %></p>
+        <%# いいね機能 %>
+        <% if current_user.already_liked?(@question) %>
+        <%= link_to "",  question_favorites_path(@question), method: :delete, class: "glyphicon glyphicon-heart" %><%= @question.favorites.count %>
+        <% else %>
+        <%= link_to "",  question_favorites_path(@question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= @question.favorites.count %>
+        <% end %>
       </div>
       <% if current_user == @question.questionee %>
       <%= link_to "編集する",   edit_user_question_path(@question.questionee_id, @question), class:'btn btn-primary' %>

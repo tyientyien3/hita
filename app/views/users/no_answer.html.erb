@@ -7,6 +7,12 @@
         <%= link_to user_question_path(@user, @user) do %>
         <div class="question_box">
           <span><%= na_question.question %></span>
+          <%# いいね機能 %>
+          <% if current_user.already_liked?(na_question) %>
+          <%= link_to "",  question_favorites_path(na_question), method: :delete, class: "glyphicon glyphicon-heart" %><%= na_question.liked_users.count %>
+          <% else %>
+          <%= link_to "",  question_favorites_path(na_question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= na_question.liked_users.count %>
+          <% end %>
         </div>
         <% end %>
         <% end %>

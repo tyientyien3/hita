@@ -40,6 +40,13 @@
         <% end %>
         <br>
         <span><%= question.question %></span>
+        <%# いいね機能 %>
+        <% if current_user.already_liked?(question) %>
+        <%= link_to "",  question_favorites_path(question), method: :delete, class: "glyphicon glyphicon-heart" %><%= question.liked_users.count %>
+        <% else %>
+        <%= link_to "",  question_favorites_path(question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= question.liked_users.count %>
+        <% end %>
+
       </div>
       <% end %>
       <% end %>
