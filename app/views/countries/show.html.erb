@@ -36,13 +36,13 @@
       <% @questions.each do | question | %>
       <%= link_to   user_question_path(question.questionee_id, question.id) do %>
       <div class="question_box">
+
         <% if question.answer == nil%>
-        <%= "未回答" %>
+        <button type="button" class="btn btn-info btn-sm"><%= "未回答" %></button>
         <% else%>
-        <%= "回答済み" %>
+        <button type="button" class="btn btn-primary btn-sm"><%= "回答済" %></button>
         <% end %>
-        <br>
-        <span><%= question.question %></span>
+
 
         <%# いいね機能 %>
         <% if current_user.already_liked?(question) %>
@@ -50,6 +50,9 @@
         <% else %>
         <%= link_to "",  question_favorites_path(question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= question.liked_users.count %>
         <% end %>
+
+        <br>
+        <span><%= question.question %></span>
 
       </div>
       <% end %>
