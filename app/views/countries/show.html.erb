@@ -38,7 +38,7 @@
   <div class="col-md-10 col-md-offset-1">
     <h2>質問一覧</h2>
     <div class="question">
-      <% @questions.each do | question | %>
+      <% @pagenated_questions.each do | question | %>
       <%= link_to   user_question_path(question.questionee_id, question.id) do %>
       <div class="question_box">
 
@@ -64,13 +64,17 @@
     </div>
   </div>
 </div>
-
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= paginate @pagenated_questions %>
+  </div>
+</div>
 <%#　ユーザー一覧 %>
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <h2>ユーザー一覧</h2>
     <div class="user">
-      <% @users.each do | user | %>
+      <% @pagenated_users.each do | user | %>
       <%= link_to   user_path(user) do %>
       <div class="user_box">
         <div class="user_box_head">
@@ -84,5 +88,11 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= paginate @pagenated_users %>
+  </div>
+</div>
+
 
 <%= stylesheet_link_tag 'question_boxes' %>
