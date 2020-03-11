@@ -1,17 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h1><%=@region.region_name %> のページ</h1>
-
-      <%# 地域一覧 %>
-      <h3><%=@region.region_name %> の地域選択</h3>
-      <% @areas.each do |area| %>
-      <div>
-        <%= link_to area_path(area.id) do %>
-        <%= area.area_name %>
-        <% end %>
+      <div class="pagetop">
+        <h1><%=@region.region_name %> のページ</h1>
       </div>
-      <% end %>
+
 
       <%# 検索機能（形だけ） %>
       <h3>KeyWord Search</h3>
@@ -23,67 +16,68 @@
       </ul>
     </div>
   </div>
-</div>
 
-<%#　質問一覧 %>
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <h2>質問一覧</h2>
-    <div class="question">
-      <% @pagenated_questions.each do | question | %>
-      <%= link_to   user_question_path(question.questionee_id, question.id) do %>
-      <div class="question_box">
 
-        <% if question.answer == nil%>
-        <button type="button" class="btn btn-info btn-sm"><%= "未回答" %></button>
-        <% else%>
-        <button type="button" class="btn btn-primary btn-sm"><%= "回答済" %></button>
-        <% end %>
+  <%#　質問一覧 %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2>質問一覧</h2>
+      <div class="question">
+        <% @pagenated_questions.each do | question | %>
+        <%= link_to   user_question_path(question.questionee_id, question.id) do %>
+        <div class="question_box">
 
-        <%# いいね機能 %>
-        <% if current_user.already_liked?(question) %>
-        <%= link_to "",  question_favorites_path(question), method: :delete, class: "glyphicon glyphicon-heart" %><%= question.liked_users.count %>
-        <% else %>
-        <%= link_to "",  question_favorites_path(question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= question.liked_users.count %>
-        <% end %>
+          <% if question.answer == nil%>
+          <button type="button" class="btn btn-info btn-sm"><%= "未回答" %></button>
+          <% else%>
+          <button type="button" class="btn btn-primary btn-sm"><%= "回答済" %></button>
+          <% end %>
 
-        <br>
-        <span><%= question.question %></span>
+          <%# いいね機能 %>
+          <% if current_user.already_liked?(question) %>
+          <%= link_to "",  question_favorites_path(question), method: :delete, class: "glyphicon glyphicon-heart" %><%= question.liked_users.count %>
+          <% else %>
+          <%= link_to "",  question_favorites_path(question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= question.liked_users.count %>
+          <% end %>
 
-      </div>
-      <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4 col-md-offset-4">
-    <%= paginate @pagenated_questions %>
-  </div>
-</div>
+          <br>
+          <span><%= question.question %></span>
 
-<%#　ユーザー一覧 %>
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <h2>ユーザー一覧</h2>
-    <div class="user">
-      <% @pagenated_users.each do | user | %>
-      <%= link_to   user_path(user) do %>
-      <div class="user_box">
-        <div class="user_box_head">
-          <span><%= user.country.country_name %>|<%= user.region.region_name %></span>
         </div>
-        <span><%= user.username %></span>
-        <%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size: "50x50" %>
+        <% end %>
+        <% end %>
       </div>
-      <% end %>
-      <% end %>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-4 col-md-offset-4">
-    <%= paginate @pagenated_users %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= paginate @pagenated_questions %>
+    </div>
+  </div>
+
+  <%#　ユーザー一覧 %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2>ユーザー一覧</h2>
+      <div class="user">
+        <% @pagenated_users.each do | user | %>
+        <%= link_to   user_path(user) do %>
+        <div class="user_box">
+          <div class="user_box_head">
+            <span><%= user.country.country_name %>|<%= user.region.region_name %></span>
+          </div>
+          <span><%= user.username %></span>
+          <%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size: "50x50" %>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= paginate @pagenated_users %>
+    </div>
   </div>
 </div>
 

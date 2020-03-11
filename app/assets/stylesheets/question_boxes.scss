@@ -19,7 +19,7 @@
   width: 250px;
   height: 100px;
   margin: 20px;
-  border: 2px solid #9079b6;
+  border: 2px solid #001e43;
   // padding: 10px;
   border-radius:
   10px 10px 10px 10px;
@@ -32,7 +32,7 @@
 .user_box_head{
   width: 246px;
   height: 40px;
-  border-bottom: 2px solid #9079b6;
+  border-bottom: 2px solid #001e43;
   color: black;
   padding: 5px; 
   border-radius: 8px 8px 0 0; 
@@ -98,4 +98,8 @@
 
 .button:active:after, .button:active:before {
   content: none;/*ボタンを押すと線が消える*/
+}
+
+.pagetop{
+  margin: 40px;
 }
