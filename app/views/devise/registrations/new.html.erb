@@ -11,6 +11,23 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
+      <div class="field">
+        <%= f.label :"メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"abcdef@abc.com", :size=>"43" %>
+      </div>
+
+      <%#  ユーザー名 %>
+      <div class="field">
+        <%= f.label :"ユーザー名" %><br />
+        <%= f.text_field :username, autofocus: true, placeholder:"username", :size=>"43" %>
+      </div>
+
+      <%# 在住ステータス %>
+      <div class="field">
+        <%= f.label :"在住ステータス" %><br />
+        <%= f.select :user_status, User.user_statuses.keys.to_a %>
+      </div>
+
       <%# 国選択　%>
       <div class="field">
         <%= f.label :"国" %><br />
@@ -25,23 +42,6 @@
         <%= f.collection_select :region_id, [], :id, :region_name, :prompt =>"都市を選択してください。" %>
       </div>
 
-
-      <%# 在住ステータス %>
-      <div class="field">
-        <%= f.label :"在住ステータス" %><br />
-        <%= f.select :user_status, User.user_statuses.keys.to_a %>
-      </div>
-
-      <div class="field">
-        <%= f.label :"メールアドレス" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"abcdef@abc.com", :size=>"43" %>
-      </div>
-
-      <%#  ユーザー名 %>
-      <div class="field">
-        <%= f.label :"ユーザー名" %><br />
-        <%= f.text_field :username, autofocus: true, placeholder:"username", :size=>"43" %>
-      </div>
 
       <div class="field">
         <%= f.label :パスワード %>
