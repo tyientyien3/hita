@@ -4,7 +4,7 @@
       <h2>未回答　質問一覧</h2>
 
       <div class="question">
-        <% @no_answers.each do | na_question | %>
+        <% @pagenated_questions.each do | na_question | %>
         <%= link_to user_question_path(@user, @user) do %>
         <div class="question_box">
           <%# いいね機能 %>
@@ -19,6 +19,11 @@
         <% end %>
         <% end %>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <%= paginate @pagenated_questions %>
     </div>
   </div>
   <div class="text-center">
