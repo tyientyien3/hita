@@ -1,0 +1,88 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.text1{
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Bangers';
+}
+
+.text2{
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Bangers';
+}
+
+
+.row1, .row2, .row3{
+  width: 100%;
+  height: 600px;
+  background:  white;
+}
+
+.row4, .row5{
+  border-bottom: dotted 2px black;
+}
+
+.explain{
+  float: left;
+  padding-left: 100px;
+}
+
+
+.img1, .img2, .img3{
+  float: left;
+  padding-left: 100px;
+}
+
+.step_one, .step_two, .step_three {
+  width: 100px;
+  text-align: center;
+  font-family: 'Bangers';
+  position: relative;
+	padding-left: 25px
+
+
+}
+
+.step_one_text, .step_two_text, .step_three_text{
+  padding: 100px;
+}
+
+
+.step_one:before, .step_two:before, .step_three:before {
+	position: absolute;
+	content: '';
+	bottom: -4px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border: none;
+	border-left: solid 15px transparent;
+	border-bottom: solid 15px black;
+}
+.step_one:after, .step_two:after, .step_three:after {
+	position: absolute;
+	content: '';
+	bottom: -4px;
+	left: 10px;
+	width: 100%;
+	border-bottom: solid 4px black;
+}
+
+span{
+  color: black;
+}
+
+.country{
+  margin: 35px;
+  float: left;
+}
+.country_img{
+  border:solid 1px #000000;
+}
+
+.country_all{
+  margin-left: 100px;
+}

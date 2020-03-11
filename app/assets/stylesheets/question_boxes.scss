@@ -1,0 +1,105 @@
+.question{
+  margin: 0 auto;
+}
+
+.question_box{
+  width: 250px;
+  height: 150px;
+  margin: 20px;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius:
+  10px 10px 10px 10px;
+  background: #ffffff;
+  float: left;
+  color: black;
+}
+
+.user_box{
+  width: 250px;
+  height: 100px;
+  margin: 20px;
+  border: 2px solid #001e43;
+  // padding: 10px;
+  border-radius:
+  10px 10px 10px 10px;
+  background: #ffffff;
+  float: left;
+  color: black;
+  text-align: center;
+}
+
+.user_box_head{
+  width: 246px;
+  height: 40px;
+  border-bottom: 2px solid #001e43;
+  color: black;
+  padding: 5px; 
+  border-radius: 8px 8px 0 0; 
+  background: #ffffff;
+  text-align: center;
+}
+
+.region{
+  width: 110px;
+  position: relative;
+  margin: 25px;
+  padding: 0.5em 1em;
+  border-top: solid 2px #333;
+  border-bottom: solid 2px #333;
+  background-color: #f4f4f4;
+  float: left;
+}
+
+.button{
+  display: inline-block;
+  position: relative;
+  padding: 0.5em 1.4em;
+  text-decoration: none;
+  text-align: center;
+  background: #dcdcdc;/*ボタン色*/
+  color: black;
+  border-bottom: solid 5px #808080;/*ボタン色より暗めに*/
+  border-right: solid 5px #c0c0c0;/*ボタン色より暗めに*/
+}
+
+.button:before {  
+  content: " ";
+  position: absolute;
+  bottom: -5px;
+  left: -1px;
+  width: 0;
+  height: 0;
+  border-width: 0 6px 6px 0px;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: #FFF;
+}
+
+.button:after {  
+  content: " ";
+  position: absolute;
+  top: -1px;
+  right: -5px;
+  width: 0;
+  height: 0;
+  border-width: 0px 6px 6px 0px;
+  border-style: solid;
+  border-color: #FFF;
+  border-bottom-color: transparent;
+}
+
+.button:active {
+  /*ボタンを押したとき*/
+  border:none;
+  -webkit-transform: translate(6px,6px);
+  transform: translate(6px,6px);
+}
+
+.button:active:after, .button:active:before {
+  content: none;/*ボタンを押すと線が消える*/
+}
+
+.pagetop{
+  margin: 40px;
+}

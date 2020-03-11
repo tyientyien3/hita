@@ -1,15 +1,82 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hita</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Hita</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <%# HEADER %>
+  <header>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="container-fluid" style="background-color: white; color: #696969;">
+          <div class="logo navbar-left">
+            <span>HITA</span>
+          </div>
+          <nav class="nav navbar navbar-nav navbar-right">
+            <%# ログイン中  %>
+            <% if user_signed_in? %>
+            <p class="navbar-text">
+              Hello,<%= current_user.username %>
+            </p>
+            <li class="nav-item">
+              <%= link_to "TOP",  root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ABOUT",  homes_about_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "MY PAGE",  user_path(current_user.id), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "LOG OUT",  destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+            <% else %>
+            <%# 未ログイン %>
+            <p class="navbar-text">
+              ようこそ!ゲストさん！
+            </p>
+            <li class="nav-item">
+              <%= link_to "TOP",  root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ABOUT",  homes_about_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "LOG IN", user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "SIGN UP", new_user_registration_path, class: "nav-link" %>
+            </li>
+            <% end %>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <%# MAIN %>
+  <main>
+    <div class="yield">
+      <%= yield %>
+    </div>
+  </main>
+
+  <%# FOOTER %>
+  <footer>
+    <div class="container">
+      <div class="copyright">
+        <p class="text-center">© 2020 HITA</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>

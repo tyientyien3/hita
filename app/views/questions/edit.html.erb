@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div>質問内容</div>
+      <% if @question.errors.any? %>
+      <div class="alert alert-warning">
+        <ul>
+          <% @question.errors.full_messages.each do |message| %>
+          <li><%= message %> error </li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+      <div class="question">
+        <p><%= @question.question %></p>
+      </div>
+      <div>回答はこちら</div>
+      <div class="edit_answer">
+        <%= form_for(@question, url: user_question_path) do |f| %>
+        <%= f.text_area :answer, size: "60x10" %>
+        <%= f.submit '回答する',class: "btn btn-primary" %>
+        <%= link_to "戻る", :back, class:'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= stylesheet_link_tag 'questions' %>
