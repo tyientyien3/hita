@@ -27,9 +27,8 @@ body {
 
 
 .field {
-  height: 100px;
+  height: 70px;
 }
-
 
 .navbar li a {
   float: left;
@@ -66,4 +65,8 @@ body {
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {        
   border-radius: 15px;  
+}
+
+h4{
+  font-family: 'Courier New', Courier, monospace;
 }

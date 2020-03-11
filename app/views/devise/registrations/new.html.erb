@@ -1,15 +1,28 @@
 <div class="container">
 
-  <div class="row">
-    <div class="col-md-6 col-md-offset-4">
-      <h2>Get Start With Your Account</h2>
-      <h4>Already have an account
-        <%= render "devise/shared/links" %>
-      </h4>
-
+  <div class="row2">
+    <div class="col-md-10 col-md-offset-1">
+      <h2><strong>Get Start With Your Account</strong></h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :"メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"abcdef@abc.com", :size=>"43" %>
+      </div>
+
+      <%#  ユーザー名 %>
+      <div class="field">
+        <%= f.label :"ユーザー名" %><br />
+        <%= f.text_field :username, autofocus: true, placeholder:"username", :size=>"43" %>
+      </div>
+
+      <%# 在住ステータス %>
+      <div class="field">
+        <%= f.label :"在住ステータス" %><br />
+        <%= f.select :user_status, User.user_statuses.keys.to_a %>
+      </div>
 
       <%# 国選択　%>
       <div class="field">
@@ -26,23 +39,6 @@
       </div>
 
 
-      <%# 在住ステータス %>
-      <div class="field">
-        <%= f.label :"在住ステータス" %><br />
-        <%= f.select :user_status, User.user_statuses.keys.to_a %>
-      </div>
-
-      <div class="field">
-        <%= f.label :"メールアドレス" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"abcdef@abc.com", :size=>"43" %>
-      </div>
-
-      <%#  ユーザー名 %>
-      <div class="field">
-        <%= f.label :"ユーザー名" %><br />
-        <%= f.text_field :username, autofocus: true, placeholder:"username", :size=>"43" %>
-      </div>
-
       <div class="field">
         <%= f.label :パスワード %>
         <% if @minimum_password_length %>
@@ -56,9 +52,19 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Sign up",class: "btn btn-default" %>
       </div>
       <% end %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4">
+      <h4>アカウントをお持ちですか?
+        <%= render "devise/shared/links" %>
+      </h4>
+    </div>
+  </div>
 </div>
+
+<%= stylesheet_link_tag 'devises' %>
