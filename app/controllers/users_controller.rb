@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     #@question = Question.find(params[:id])
-    @questions = @user.questionee
+    questions = @user.questionee
+    @pagenated_questions = questions.page(params[:page]).per(6)
     @country = @user.country
     @region = @user.region
     @no_answers = Question.where(answer: nil).where(questionee: @user).count
@@ -12,7 +13,8 @@ class UsersController < ApplicationController
 
   def no_answer
     @user = User.find(params[:id])
-    @no_answers = Question.where(answer: nil).where(questionee: @user)
+    no_answers = Question.where(answer: nil).where(questionee: @user)
+    @pagenated_questions = no_answers.page(params[:page]).per(9)
   end
 
   def edit
