@@ -1,12 +1,8 @@
 <div class="container">
 
-  <div class="row">
-    <div class="col-md-6 col-md-offset-4">
-      <h2>Get Start With Your Account</h2>
-      <h4>Already have an account
-        <%= render "devise/shared/links" %>
-      </h4>
-
+  <div class="row2">
+    <div class="col-md-10 col-md-offset-1">
+      <h2><strong>Get Start With Your Account</strong></h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -56,9 +52,19 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Sign up",class: "btn btn-default" %>
       </div>
       <% end %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-4">
+      <h4>アカウントをお持ちですか?
+        <%= render "devise/shared/links" %>
+      </h4>
+    </div>
+  </div>
 </div>
+
+<%= stylesheet_link_tag 'devises' %>
