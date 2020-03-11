@@ -5,8 +5,9 @@
 
       <div class="question">
         <% @pagenated_questions.each do | na_question | %>
-        <%= link_to user_question_path(@user, @user) do %>
+        <%= link_to user_question_path(@user, na_question) do %>
         <div class="question_box">
+          <button type="button" class="btn btn-default btn-sm"><%= "答える" %></button>
           <%# いいね機能 %>
           <% if current_user.already_liked?(na_question) %>
           <%= link_to "",  question_favorites_path(na_question), method: :delete, class: "glyphicon glyphicon-heart" %><%= na_question.liked_users.count %>

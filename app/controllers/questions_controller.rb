@@ -33,6 +33,10 @@ class QuestionsController < ApplicationController
   def edit
     @question = Question.find(params[:id])
     @user = User.find(params[:user_id])
+    # CURRENT USER のみ編集可能
+    if @user != current_user
+      redirect_to user_question_path(@user, @question)
+    end
   end
 
   def update

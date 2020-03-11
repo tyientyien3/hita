@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
 
-      <h1>このユーザーについて</h1>
+      <h1>Hey! I am <%= @user.username %></h1>
       <% if @user == current_user %>
       <div class="text-right">
         <%= link_to '編集する', edit_user_path(@user.id), class: "btn btn-primary" %>
@@ -43,8 +43,10 @@
         <%= @user.introduction %>
       </div>
       <%# question new ページに遷移 %>
-      <%= link_to   new_user_question_path(@user), class:'btn btn-primary' do %>
-      <%= @user.username %>さんに質問する
+      <%= link_to   new_user_question_path(@user) do %>
+      <div class="button">
+        <%= @user.username %>さんに質問する
+      </div>
       <% end %>
     </div>
   </div>
