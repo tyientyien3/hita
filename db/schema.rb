@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2020_03_12_071019) do
     t.text "answer"
     t.integer "country_id", null: false
     t.integer "region_id", null: false
+    t.integer "questioner_id"
+    t.integer "questionee_id"
   end
 
   create_table "regions", force: :cascade do |t|
