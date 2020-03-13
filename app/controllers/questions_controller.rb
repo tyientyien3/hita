@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
     @question.questionee = @user
     #回答者のcountry_id
     @question.country_id = @user.country_id
-    #回答者のcountry_id
+    #回答者のregion_id
     @question.region_id = @user.region_id
     if @question.save
       flash[:success] = "Book was successfully created."
