@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
     @question.questionee = @user
     #回答者のcountry_id
     @question.country_id = @user.country_id
-    #回答者のcountry_id
+    #回答者のregion_id
     @question.region_id = @user.region_id
     if @question.save
       flash[:success] = "Book was successfully created."
@@ -42,12 +42,9 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      # 未実装　質問のショー
       redirect_to action: "show", notice: "You have updatad user successfully."
     else
-      # ERROR MASSAGE
       flash[:alert] = "Save Error!"
-      # RENDER VARIABLES
       render :edit
     end
   end

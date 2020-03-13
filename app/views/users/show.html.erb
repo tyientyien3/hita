@@ -2,29 +2,29 @@
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-
-      <h1>Hey! I am <%= @user.username %></h1>
+      <h1 class="text-center">このユーザーについて</h1>
       <% if @user == current_user %>
       <div class="text-right">
         <%= link_to '編集する', edit_user_path(@user.id), class: "btn btn-primary" %>
       </div>
       <% end %>
       <%# 未回答件数 %>
-      <h3>未回答の質問　　
+      <h3 class="text-right">未回答の質問　　
         <%= link_to no_answer_user_path(@user) do %>
         <%= @no_answers %>
         <% end %>件
       </h3>
-      <h2>User info</h2>
 
-      <%= attachment_image_tag @user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "img-rounded pull-left profile-img", fallback: "no_image.jpg" %>
+      <div class="profile_img">
+      <%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+      </div>
       <table>
         <tr>
-          <th>name</th>
-          <th> <%= @user.username %></th>
+          <th></th>
+          <th> <h3><%= @user.username %></h3></th>
         </tr>
         <tr>
-          <th>ステータス</th>
+          <th><span class="glyphicon glyphicon-flag" aria-hidden="true"></span></th>
           <th><%= @user.user_status %></th>
         </tr>
         <tr>
@@ -32,6 +32,7 @@
           <th>国：<%= @country.country_name %>　都市：<%= @region.region_name %></th>
         </tr>
       </table>
+
     </div>
   </div>
 
@@ -43,11 +44,13 @@
         <%= @user.introduction %>
       </div>
       <%# question new ページに遷移 %>
-      <%= link_to   new_user_question_path(@user) do %>
-      <div class="button">
-        <%= @user.username %>さんに質問する
+      <div class="text-center">
+        <%= link_to   new_user_question_path(@user) do %>
+          <div class="button">
+          <%= @user.username %>さんに質問する
+          </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
 

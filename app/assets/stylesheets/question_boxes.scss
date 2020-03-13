@@ -62,7 +62,6 @@
   position: relative;
   padding: 0.5em 1.4em;
   text-decoration: none;
-  text-align: center;
   background: #dcdcdc;/*ボタン色*/
   color: black;
   border-bottom: solid 5px #808080;/*ボタン色より暗め*/
@@ -107,4 +106,12 @@
 
 .pagetop{
   margin: 40px;
+}
+
+table{
+  margin-left: 300px;
+}
+
+.profile_img{
+  margin-left: 80px;
 }
