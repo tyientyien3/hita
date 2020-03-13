@@ -13,20 +13,24 @@
   background: #ffffff;
   float: left;
   color: black;
+  word-wrap: break-word;
+  overflow: auto;
 }
+
 
 .user_box{
   width: 250px;
   height: 100px;
   margin: 20px;
   border: 2px solid #001e43;
-  // padding: 10px;
   border-radius:
   10px 10px 10px 10px;
   background: #ffffff;
   float: left;
   color: black;
   text-align: center;
+  word-wrap: break-word;
+  
 }
 
 .user_box_head{
@@ -58,11 +62,10 @@
   position: relative;
   padding: 0.5em 1.4em;
   text-decoration: none;
-  text-align: center;
   background: #dcdcdc;/*ボタン色*/
   color: black;
-  border-bottom: solid 5px #808080;/*ボタン色より暗めに*/
-  border-right: solid 5px #c0c0c0;/*ボタン色より暗めに*/
+  border-bottom: solid 5px #808080;/*ボタン色より暗め*/
+  border-right: solid 5px #c0c0c0;/*ボタン色より暗め*/
 }
 
 .button:before {  
@@ -92,16 +95,23 @@
 }
 
 .button:active {
-  /*ボタンを押したとき*/
   border:none;
   -webkit-transform: translate(6px,6px);
   transform: translate(6px,6px);
 }
 
 .button:active:after, .button:active:before {
-  content: none;/*ボタンを押すと線が消える*/
+  content: none;
 }
 
 .pagetop{
   margin: 40px;
+}
+
+table{
+  margin-left: 300px;
+}
+
+.profile_img{
+  margin-left: 80px;
 }

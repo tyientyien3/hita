@@ -1,29 +1,39 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <div>質問内容</div>
+      <h3>質問内容</h3>
+      <%# 質問者名前 %>
+      <%= attachment_image_tag @question.questioner, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
+      <%= link_to user_path(@question.questioner) do %>
+      <%= @question.questioner.username %>
+      <% end %>
       <div class="question">
-        <p><%= @question.question %></p>
+        <%= @question.question %>
       </div>
-      <div>回答内容</div>
+      <h3>回答内容</h3>
+      <%# 回答者名前 %>
+      <%= attachment_image_tag @question.questionee, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
+      <%= link_to user_path(@question.questionee) do %>
+      <%= @question.questionee.username %>
+      <% end %>
       <div class="favorite">
         <%= "いいね" %>
         <%# いいね機能 %>
         <% if current_user.already_liked?(@question) %>
-        <%= link_to "",  question_favorites_path(@question), method: :delete, class: "glyphicon glyphicon-heart" %><%= @question.favorites.count %>
+        <%= link_to "", question_favorites_path(@question), method: :delete, class: "glyphicon glyphicon-heart" %><%= @question.favorites.count %>
         <% else %>
-        <%= link_to "",  question_favorites_path(@question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= @question.favorites.count %>
+        <%= link_to "", question_favorites_path(@question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= @question.favorites.count %>
         <% end %>
       </div>
       <div class="answer">
         <p><%= @question.answer %></p>
       </div>
       <% if current_user == @question.questionee %>
-      <%= link_to "編集する",   edit_user_question_path(@question.questionee_id, @question), class:'btn btn-primary' %>
+      <%= link_to "編集する", edit_user_question_path(@question.questionee_id, @question), class: "btn btn-primary" %>
       <% end %>
-      <%= link_to "戻る",  user_path(@user), class:'btn btn-default' %>
+      <%= link_to "戻る", user_path(@user), class: "btn btn-default" %>
     </div>
   </div>
 </div>
 
-<%= stylesheet_link_tag 'questions' %>
+<%= stylesheet_link_tag "questions" %>
