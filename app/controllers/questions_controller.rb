@@ -42,12 +42,9 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      # 未実装　質問のショー
       redirect_to action: "show", notice: "You have updatad user successfully."
     else
-      # ERROR MASSAGE
       flash[:alert] = "Save Error!"
-      # RENDER VARIABLES
       render :edit
     end
   end

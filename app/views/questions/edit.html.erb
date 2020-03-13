@@ -23,7 +23,7 @@
         <%= form_for(@question, url: user_question_path) do |f| %>
         <%= f.text_area :answer, size: "60x10" %>
         <%= f.submit '回答する',class: "btn btn-primary" %>
-        <%= link_to "戻る", :back, class:'btn btn-primary' %>
+        <%= link_to "戻る", :back, class:'btn btn-default' %>
         <div class="text-right">
         <%= link_to "質問を削除する", user_question_path(@user, @question), class: "btn btn-danger", method: :delete, "data-confirm" => "この質問を削除します" %>
         <% end %>
