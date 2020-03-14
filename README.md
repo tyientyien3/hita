@@ -5,7 +5,8 @@ This application is for those who plan to go and stay south east asia.
 You can ask anything that you are wandering about east asia real life.
 
 # DEMO
-![Uploading スクリーンショット 2020-03-14 19.10.31.png…]()
+<img width="777" alt="img1_readme" src="https://user-images.githubusercontent.com/59005449/76680004-6e17cd00-6628-11ea-8e10-4ad4ab7e6d34.png">
+
 
 
 # Features
