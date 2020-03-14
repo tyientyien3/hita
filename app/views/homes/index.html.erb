@@ -37,6 +37,18 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% unless user_signed_in? %>
+    <div class="start_btn">
+      <%= link_to "HITAをはじめる", new_user_registration_path %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+<% if user_signed_in? %>
 <div class="row3">
   <h1 class="text1">東南アジア国一覧</h1>
   <div class="col-md-8 col-md-offset-2">
@@ -118,5 +130,6 @@
     </div>
   </div>
 </div>
+<% end %>
 
 <%= stylesheet_link_tag 'homes' %>
