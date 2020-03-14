@@ -36,7 +36,14 @@
     </div>
   </div>
 </div>
+<% unless user_signed_in? %>
+<div class="start_btn">
+  <%= link_to "HITAをはじめる", new_user_registration_path, class: "btn btn-default" %>
+</div>
+<% end %>
 
+
+<% if user_signed_in? %>
 <div class="row3">
   <h1 class="text1">東南アジア国一覧</h1>
   <div class="col-md-8 col-md-offset-2">
@@ -118,5 +125,6 @@
     </div>
   </div>
 </div>
+<% end %>
 
 <%= stylesheet_link_tag 'homes' %>
