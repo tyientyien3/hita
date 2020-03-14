@@ -23,7 +23,7 @@ bundle install
 rails db:migrate
 rails db:seed
 ```
-#Note
+# Note
 
 * you could sign up if you have invalid email.
 
