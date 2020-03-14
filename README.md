@@ -10,8 +10,7 @@ You can ask anything that you are wandering about east asia real life.
 * choose a user who you may think you want to ask.
 <img width="1047" alt="img2_readme" src="https://user-images.githubusercontent.com/59005449/76680164-b2f03380-6629-11ea-998c-4d5ae55542f4.png">
 * push ask this person button and write dowm what you are wandering
-
-
+<img width="739" alt="img3_readme" src="https://user-images.githubusercontent.com/59005449/76680227-37db4d00-662a-11ea-9461-b03a1701223d.png">
 
 # Features
 This application specializes in long staying infomation.
