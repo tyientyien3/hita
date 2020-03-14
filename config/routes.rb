@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "homes#index"
   #about ページ
   get "homes/about"
+  #国選択 ページ
+  get "homes/country"
   #devise
   devise_for :users, :controllers => {
                        :registrations => "users/registrations",
