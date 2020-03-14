@@ -13,3 +13,12 @@ bundle install
 rails db:migrate
 rails db:seed
 ```
+#Note
+
+*you could sign up if you have invalid email.
+
+# Auther
+
+* Name: Yusuke Soeda
+* Learned at: Infratop
+* email: yusuke.soeda228@gmail.com
