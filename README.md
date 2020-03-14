@@ -2,14 +2,14 @@
 
 This application is for those who plan to go and stay south east asia.
 <br>
-You can ask anything that you are wandering about east asia real life.
+You can ask anything that you are wondering about east asia real life.
 
 # DEMO
 1. Choose a country
 <img width="487" alt="img1_readme" src="https://user-images.githubusercontent.com/59005449/76680067-e41c3400-6628-11ea-9622-df1261c30b78.png" width=1%>
-2. Choose a user who you may think you want to ask.
+2. Choose a user who you may think you want to ask for.
 <img width="1041" alt="img2_readme" src="https://user-images.githubusercontent.com/59005449/76680351-3a8a7200-662b-11ea-9bdb-fd0accca30a0.png">
-3. Push ask this person button and write dowm what you are wandering
+3. Push ask this person button and write dowm what you are wondering.
 <img width="739" alt="img3_readme" src="https://user-images.githubusercontent.com/59005449/76680227-37db4d00-662a-11ea-9461-b03a1701223d.png">
 
 # Features
