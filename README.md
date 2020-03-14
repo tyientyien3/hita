@@ -15,7 +15,7 @@ rails db:seed
 ```
 #Note
 
-*you could sign up if you have invalid email.
+* you could sign up if you have invalid email.
 
 # Auther
 
