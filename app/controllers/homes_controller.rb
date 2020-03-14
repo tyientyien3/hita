@@ -5,4 +5,8 @@ class HomesController < ApplicationController
 
   def about
   end
+
+  def country
+    @countries = Country.all
+  end
 end
