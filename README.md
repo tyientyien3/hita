@@ -5,6 +5,8 @@ This application is for those who plan to go and stay south east asia.
 You can ask anything that you are wandering about east asia real life.
 
 # DEMO
+![Uploading スクリーンショット 2020-03-14 19.10.31.png…]()
+
 
 # Features
 This application specializes in long staying infomation.
