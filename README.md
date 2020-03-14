@@ -1,7 +1,6 @@
-# README
+# HITA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+これは東南アジアへ長期滞在を考えている日本人が利用できる現地情報のQ&Aサイトです。
 
 Things you may want to cover:
 
