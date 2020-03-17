@@ -8,9 +8,8 @@ Rails.application.config.assets.version = "1.0"
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join("node_modules")
 
-#test.js 要削除
-Rails.application.config.assets.precompile += %w( test.js )
-
+# selectbox 連動
+Rails.application.config.assets.precompile += %w( selectbox.js )
 #質問の枠　css
 Rails.application.config.assets.precompile += %w( question_boxes.scss )
 #question/show の css
