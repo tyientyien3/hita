@@ -1,8 +1,8 @@
 <div class="container">
+
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <h2>未回答　質問一覧</h2>
-
       <div class="question">
         <% @pagenated_questions.each do | na_question | %>
         <%= link_to user_question_path(@user, na_question) do %>
@@ -22,11 +22,13 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
       <%= paginate @pagenated_questions %>
     </div>
   </div>
+
   <div class="text-center">
     <%= link_to "戻る", user_path(@user) ,class: "btn btn-default"%>
   </div>

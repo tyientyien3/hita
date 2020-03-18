@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+// 質問内容
 .question{
   width: 500px;
   height: 200px;
@@ -14,13 +14,11 @@
   border-radius: 9px;
   word-wrap: break-word;
 }
-
-
 .question p {
   margin: 0; 
   padding: 0;
 }
-
+// 回答内容
 .answer{
   width: 500px;
   height: 200px;
@@ -31,16 +29,15 @@
   border-bottom: solid 6px #aac5de;
   border-radius: 9px;
 }
-
 .answer p{
   margin: 0; 
   padding: 0;
 }
-
+// いいね
 .favorite{
   text-align: left;
 }
-
+// 質問削除ボタン
 .text-right{
   float: right;
   padding-right: 50px;

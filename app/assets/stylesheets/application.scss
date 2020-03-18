@@ -13,23 +13,23 @@
  *= require_self
  */
 
- @import "bootstrap-sprockets";
+@import "bootstrap-sprockets";
 @import "bootstrap";  
 
+// ヘッダーの線
 header {
   border-bottom: solid 2px black;
   }
-
+// 全体の背景
 body {
   background-color: white; 
   font-family: 'Courier New', Courier, monospace;
 }
-
-
+// 新規登録・ログインの幅
 .field {
   height: 70px;
 }
-
+// ヘッダーナビの色など
 .navbar li a {
   float: left;
   line-height: 50px;
@@ -37,8 +37,7 @@ body {
   text-decoration: none;
   color: #111;
 }
-
-
+// ロゴ
 .logo span {
   font-family: 'Parisienne', cursive;
   font-size: 30px;
@@ -46,12 +45,9 @@ body {
   font-weight: 600;
   color:  #111;
 }
-
-
 .navbar-text {
   float: left;
 }
-
 /*ページネーション自体のデザイン*/
 .pagination>li>a {          
   border: none;     
@@ -65,10 +61,6 @@ body {
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {        
   border-radius: 15px;  
-}
-
-h1, h2, h4{
-  font-family: 'Courier New', Courier, monospace;
 }
 
 
