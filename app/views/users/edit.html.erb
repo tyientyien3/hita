@@ -1,9 +1,11 @@
 <div class="conrainer">
+
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1>詳細変更</h1>
     </div>
   </div>
+
   <% if @user.errors.any? %>
   <div class="alert alert-warning">
     <ul>
@@ -15,7 +17,6 @@
   <% end %>
 
   <%= form_for(@user) do |f| %>
-
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="image">
@@ -64,6 +65,7 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h4>Introduction</h4>
