@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     #回答者のregion_id
     @question.region_id = @user.region_id
     if @question.save
-      flash[:success] = "Book was successfully created."
+      flash[:success] = "Your question was successfully created."
       redirect_to user_question_path(@question.questionee_id, @question)
     else
       render :new
@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      redirect_to action: "show", notice: "You have updatad user successfully."
+      redirect_to action: "show", notice: "You have successfully answered the question."
     else
       flash[:alert] = "Save Error!"
       render :edit
@@ -52,7 +52,7 @@ class QuestionsController < ApplicationController
     question = Question.find(params[:id])
     question.destroy
     @user = User.find(params[:user_id])
-    redirect_to user_path(@user), notice: "Your address was successfully destroyed."
+    redirect_to user_path(@user), notice: "Your question was successfully destroyed."
   end
 
   private

@@ -2,21 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-
-.image, .name, .status{
-  float: left;
-}
-.place{
-  float: left;
-  margin-left: 120px;
-
-}
-.text-right{
-  float: right;
-  padding-right: 50px;
-}
 // 質問ボタン
 .button{
   display: inline-block;
@@ -64,11 +49,24 @@
 .button:active:after, .button:active:before {
   content: none;
 }
-// ユーザー情報
+// 未回答リンク
+.unanswered{
+  text-align: right;
+}
+// show ユーザー情報
 table{
   margin-left: 300px;
 }
-// ユーザー画像
+// show ユーザー画像
 .profile_img{
   margin-left: 80px;
+}
+// edit ユーザー情報
+.image, .name, .status{
+  float: left;
+}
+// edit アカウント削除ボタン
+.delete_btn{
+  float: right;
+  padding-right: 50px;
 }

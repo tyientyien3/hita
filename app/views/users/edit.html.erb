@@ -71,7 +71,7 @@
       <br><br>
       <%= f.submit '変更する', class: "btn btn-primary" %>
       <%= link_to '戻る', user_path(@user), class: "btn btn-default" %>
-      <div class="text-right">
+      <div class="delete_btn">
         <%= link_to "アカウントを削除する",user_path(@user), class: "btn btn-danger", method: :delete, "data-confirm" => "本当にアカウントを削除しますか？" %>
       </div>
       <br>
