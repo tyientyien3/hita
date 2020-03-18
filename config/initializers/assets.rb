@@ -20,6 +20,8 @@ Rails.application.config.assets.precompile += %w( homes.scss )
 Rails.application.config.assets.precompile += %w( users.scss )
 #devise使用画面の　css
 Rails.application.config.assets.precompile += %w( devises.scss )
+#countries使用画面の　css
+Rails.application.config.assets.precompile += %w( countries.scss )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

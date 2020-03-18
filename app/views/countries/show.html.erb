@@ -36,7 +36,6 @@
         <% else %>
         <%= link_to "",  question_favorites_path(question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= question.liked_users.count %>
         <% end %> <%= question.region.region_name %>
-
         <br>
         <span><%= question.question %></span>
       </div>
@@ -77,3 +76,4 @@
 
 
 <%= stylesheet_link_tag 'question_boxes' %>
+<%= stylesheet_link_tag 'countries' %>

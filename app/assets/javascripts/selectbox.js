@@ -23,5 +23,4 @@ var b_options = JSON.parse(region_names);
       $select_b.append($option_tag);
     });
   });
-
 });
