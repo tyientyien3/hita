@@ -7,13 +7,13 @@
       <div class="text-right">
         <%= link_to '編集する', edit_user_path(@user.id), class: "btn btn-primary" %>
       </div>
-      <% end %>
       <%# 未回答件数 %>
       <h3 class="unanswered">未回答の質問　　
         <%= link_to no_answer_user_path(@user) do %>
         <%= @no_answers %>
         <% end %>件
       </h3>
+      <% end %>
       <div class="profile_img">
         <%= attachment_image_tag @user, :profile_image, :fill, 120, 120, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
       </div>
