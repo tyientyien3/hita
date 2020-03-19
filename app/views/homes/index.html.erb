@@ -1,9 +1,10 @@
 <div class="container">
 
+  <% if user_signed_in? %>
   <div class="row1">
-    <h1 class="text1">Welcome to HITA</h1>
+    <h1 class="text1"><span>Welcome to HITA</span></h1>
     <br>
-    <p class="text2">東南アジア　どんな暮らしができるか聞いてみよう！</p>
+    <p class="text2"><span>東南アジア　どんな暮らしができるか聞いてみよう！</span></p>
     <br><br>
     <div class="col-md-6 col-md-offset-1">
       <div class="img1">
@@ -19,6 +20,27 @@
       </div>
     </div>
   </div>
+  <% else %>
+  <div class="row1">
+    <h1 class="text1">Welcome to HITA</h1>
+    <br>
+    <p class="text2">東南アジア　どんな暮らしができるか聞いてみよう！</p>
+    <br><br>
+    <div class="col-md-6 col-md-offset-1">
+      <div class="img1">
+        <%= image_tag('frog.png') %>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="explain">
+        <h1>Hands</h1>
+        <h1>In</h1>
+        <h1>The</h1>
+        <h1>Air</h1>
+      </div>
+    </div>
+  </div>
+  <% end %>
 
   <div class="row2">
     <div class="col-md-6 col-md-offset-1">
@@ -50,7 +72,7 @@
 
   <% if user_signed_in? %>
   <div class="row3">
-    <h1 class="text1">東南アジア国一覧</h1>
+    <h1 class="text1"><span>東南アジア国一覧</span></h1>
     <div class="col-md-10 col-md-offset-1">
       <div class="country_all">
         <div class="country">
