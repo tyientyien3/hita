@@ -21,6 +21,7 @@ class QuestionsController < ApplicationController
       flash[:success] = "Your question was successfully created."
       redirect_to user_question_path(@question.questionee_id, @question)
     else
+      flash[:alert] = "Save Error!"
       render :new
     end
   end
