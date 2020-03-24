@@ -29,6 +29,10 @@ body {
 .field {
   height: 70px;
 }
+
+.navbar-nav{
+  margin-top: 0.8rem;
+}
 // ヘッダーナビの色など
 .navbar li a {
   float: left;
@@ -44,6 +48,7 @@ body {
   line-height: 50px;
   font-weight: 600;
   color:  #111;
+  margin-top: 0.8rem;
 }
 .navbar-text {
   float: left;
@@ -62,5 +67,3 @@ body {
 .pagination>li>a:hover {        
   border-radius: 15px;  
 }
-
-
