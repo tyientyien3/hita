@@ -3,26 +3,28 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #@question = Question.find(params[:id])
-    questions = @user.questionee
-    @pagenated_questions = questions.page(params[:page]).per(6)
     @country = @user.country
     @region = @user.region
     @no_answers = Question.where(answer: nil).where(questionee: @user).count
+    # 質問一覧
+    questions = @user.questionee
+    @pagenated_questions = questions.page(params[:page]).per(8)
   end
 
   def no_answer
     @user = User.find(params[:id])
+    # 未回答質問一覧
     no_answers = Question.where(answer: nil).where(questionee: @user)
-    @pagenated_questions = no_answers.page(params[:page]).per(9)
+    @pagenated_questions = no_answers.page(params[:page]).per(12)
   end
 
   def edit
     @user = User.find(params[:id])
-    # CURRENT USER のみ編集可能
+    # 自分の情報のみ編集可
     if @user != current_user
       redirect_to user_path(current_user)
     end
+    # セレクトボックス連動
     @countries = []
     @regions_name = []
     Country.all.each do |country|
@@ -39,7 +41,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "You have updatad user successfully."
+      redirect_to user_path(@user), notice: "You have successfully updatad your info."
     else
       # ERROR MASSAGE
       flash[:alert] = "Save Error!"

@@ -1,7 +1,15 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+span{
+  background: linear-gradient(transparent 50%,rgba(247, 198, 104, 0.2) 50%,rgb(247, 198, 104) 75%,rgba(247, 198, 104, 0.2));
+  font-weight: bold;
+}
 
+strong{
+  background: linear-gradient(transparent 50%,rgba(247, 198, 104, 0.2) 50%,rgb(71, 250, 238) 75%,rgba(247, 198, 104, 0.2));
+  font-weight: bold;
+}
 .text1{
   text-align: center;
   font-size: 50px;

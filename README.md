@@ -2,7 +2,7 @@
 
 This application is for those who plan to go and stay south east asia.
 <br>
-You can ask anything that you are wondering about east asia real life.
+You can ask anything that you are wondering about real life in east asia.
 
 # DEMO
 1. Choose a country

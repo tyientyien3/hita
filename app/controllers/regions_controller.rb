@@ -3,10 +3,11 @@ class RegionsController < ApplicationController
 
   def show
     @region = Region.find(params[:id])
+    # 質問一覧
     questions = @region.questions
-    @pagenated_questions = questions.page(params[:page]).per(6)
+    @pagenated_questions = questions.page(params[:page]).per(8)
+    # ユーザー一覧
     users = @region.users
-    @pagenated_users = users.page(params[:page]).per(6)
-    @areas = Area.where(region_id: params[:id])
+    @pagenated_users = users.page(params[:page]).per(8)
   end
 end

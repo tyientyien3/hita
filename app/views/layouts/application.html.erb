@@ -5,7 +5,6 @@
   <title>Hita</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
@@ -16,9 +15,11 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <div class="container-fluid" style="background-color: white; color: #696969;">
+          <%= link_to root_path do %>
           <div class="logo navbar-left">
-            <span>HITA</span>
+            <p>HITA</p>
           </div>
+          <% end %>
           <nav class="nav navbar navbar-nav navbar-right">
             <%# ログイン中  %>
             <% if user_signed_in? %>
@@ -61,13 +62,31 @@
     </div>
   </header>
 
-
   <%# MAIN %>
   <main>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%# FLASH MESSAGE %>
+        <% if flash[:notice] %>
+        <div class="row">
+          <p class="text-success">
+            <%= flash[:notice]%>
+          </p>
+        </div>
+        <% elsif flash[:alert] %>
+        <div class="row">
+          <p class="text-danger">
+            <%= flash[:alert]%>
+          </p>
+        </div>
+        <% end %>
+      </div>
+    </div>
     <div class="yield">
       <%= yield %>
     </div>
   </main>
+
 
   <%# FOOTER %>
   <footer>

@@ -2,20 +2,71 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-
+// 質問ボタン
+.button{
+  display: inline-block;
+  position: relative;
+  padding: 0.5em 1.4em;
+  text-decoration: none;
+  background: #dcdcdc;/*ボタン色*/
+  color: black;
+  border-bottom: solid 5px #808080;/*ボタン色より暗め*/
+  border-right: solid 5px #c0c0c0;/*ボタン色より暗め*/
+}
+// 質問ボタン
+.button:before {  
+  content: " ";
+  position: absolute;
+  bottom: -5px;
+  left: -1px;
+  width: 0;
+  height: 0;
+  border-width: 0 6px 6px 0px;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: #FFF;
+}
+// 質問ボタン
+.button:after {  
+  content: " ";
+  position: absolute;
+  top: -1px;
+  right: -5px;
+  width: 0;
+  height: 0;
+  border-width: 0px 6px 6px 0px;
+  border-style: solid;
+  border-color: #FFF;
+  border-bottom-color: transparent;
+}
+// 質問ボタン
+.button:active {
+  border:none;
+  -webkit-transform: translate(6px,6px);
+  transform: translate(6px,6px);
+}
+// 質問ボタン
+.button:active:after, .button:active:before {
+  content: none;
+}
+// 未回答リンク
+.unanswered{
+  text-align: right;
+}
+// show ユーザー情報
+table{
+  margin-left: 300px;
+}
+// show ユーザー画像
+.profile_img{
+  margin-left: 80px;
+}
+// edit ユーザー情報
 .image, .name, .status{
   float: left;
 }
-
-.place{
-  float: left;
-  margin-left: 120px;
-
-}
-
-.text-right{
+// edit アカウント削除ボタン
+.delete_btn{
   float: right;
   padding-right: 50px;
 }
