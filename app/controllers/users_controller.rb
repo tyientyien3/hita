@@ -8,14 +8,14 @@ class UsersController < ApplicationController
     @no_answers = Question.where(answer: nil).where(questionee: @user).count
     # 質問一覧
     questions = @user.questionee
-    @pagenated_questions = questions.page(params[:page]).per(8)
+    @pagenated_questions = questions.page(params[:page]).per(9)
   end
 
   def no_answer
     @user = User.find(params[:id])
     # 未回答質問一覧
     no_answers = Question.where(answer: nil).where(questionee: @user)
-    @pagenated_questions = no_answers.page(params[:page]).per(12)
+    @pagenated_questions = no_answers.page(params[:page]).per(9)
   end
 
   def edit
