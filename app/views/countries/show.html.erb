@@ -23,7 +23,7 @@
       <h2>質問一覧</h2>
       <div class="question">
         <% @pagenated_questions.each do | question | %>
-        <%= link_to   user_question_path(question.questionee_id, question.id) do %>
+        <%= link_to user_question_path(question.questionee_id, question.id) do %>
         <div class="question_box">
 
           <% if question.answer == nil%>
@@ -34,9 +34,9 @@
 
           <%# いいね機能 %>
           <% if current_user.already_liked?(question) %>
-          <%= link_to "",  question_favorites_path(question), method: :delete, class: "glyphicon glyphicon-heart" %><%= question.liked_users.count %>
+          <%= link_to "", question_favorites_path(question), method: :delete, class: "glyphicon glyphicon-heart" %><%= question.liked_users.count %>
           <% else %>
-          <%= link_to "",  question_favorites_path(question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= question.liked_users.count %>
+          <%= link_to "", question_favorites_path(question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= question.liked_users.count %>
           <% end %> <%= question.region.region_name %>
           <br>
           <span><%= question.question %></span>
