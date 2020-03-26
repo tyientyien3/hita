@@ -1,49 +1,32 @@
-<div class="container">
-  <% if user_signed_in? %>
-    <div class="row1">
-      <h1 class="text1"><span>Welcome to HITA</span></h1>
-      <p class="text2"><span>東南アジア　どんな暮らしができるか聞いてみよう！</span></p>
-      <div class="col-md-6 col-md-offset-1">
-        <div class="img1">
-          <%= image_tag('frog.png') %>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="explain">
-          <h1><strong>H</strong>ands</h1>
-          <h1><strong>I</strong>n</h1>
-          <h1><strong>T</strong>he</h1>
-          <h1><strong>A</strong>ir</h1>
-        </div>
+<div class="<%= "underline" if user_signed_in? %>">
+  <div class="my-5">
+    <h1 class="text-center"><span class="underline-orange">Welcome to HITA</span></h1>
+    <h4 class="text-center"><span class="underline-orange">東南アジア　どんな暮らしができるか聞いてみよう！</span></h4>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-1">
+      <div class="img1">
+        <%= image_tag('frog.png') %>
       </div>
     </div>
-  <% else %>
-    <div class="row1">
-      <h1 class="text1">Welcome to HITA</h1>
-      <p class="text2">東南アジア　どんな暮らしができるか聞いてみよう！</p>
-      <div class="col-md-6 col-md-offset-1">
-        <div class="img1">
-          <%= image_tag('frog.png') %>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="explain">
-          <h1>Hands</h1>
-          <h1>In</h1>
-          <h1>The</h1>
-          <h1>Air</h1>
-        </div>
+    <div class="col-md-5">
+      <div class="explain">
+        <h1><span class="underline-blue">H</span>ands</h1>
+        <h1><span class="underline-blue">I</span>n</h1>
+        <h1><span class="underline-blue">T</span>he</h1>
+        <h1><span class="underline-blue">A</span>ir</h1>
       </div>
     </div>
-  <% end %>
-  <div class="row2">
-    <div class="col-md-6 col-md-offset-1">
-      <h2>
-        <p>海外に住んでみたい!</p>
-        でもリアルな生活感なのか分からず</p>
-      一歩が踏み出せない。</p>
-    そんなときにはHITAで</p>
-  海外在住者に質問しよう！</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 offset-md-1">
+    <h2>
+      <p>海外に住んでみたい!</p>
+      でもリアルな生活感なのか分からず</p>
+    一歩が踏み出せない。</p>
+  そんなときにはHITAで</p>
+海外在住者に質問しよう！</p>
 </h2>
 <div class="sample" style="text-align:center;">
   <%= link_to '使い方', homes_about_path, class: "btn btn-default" %>
@@ -54,7 +37,7 @@
 </div>
 </div>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 offset-md-3">
     <% unless user_signed_in? %>
       <div class="start_btn">
         <%= link_to "HITAをはじめる", new_user_registration_path %>
@@ -63,9 +46,9 @@
   </div>
 </div>
 <% if user_signed_in? %>
-  <div class="row3">
-    <h1 class="text1"><span>東南アジア国一覧</span></h1>
-    <div class="col-md-10 col-md-offset-1">
+  <div class="row">
+    <h1 class="text-center">東南アジア国一覧</h1>
+    <div class="col-md-10 offset-md-1">
       <div class="country_all">
         <div class="country">
           <%= link_to country_path(2) do %>
