@@ -1,156 +1,147 @@
 <div class="container">
-
   <% if user_signed_in? %>
-  <div class="row1">
-    <h1 class="text1"><span>Welcome to HITA</span></h1>
-    <br>
-    <p class="text2"><span>東南アジア　どんな暮らしができるか聞いてみよう！</span></p>
-    <br><br>
-    <div class="col-md-6 col-md-offset-1">
-      <div class="img1">
-        <%= image_tag('frog.png') %>
+    <div class="row1">
+      <h1 class="text1"><span>Welcome to HITA</span></h1>
+      <p class="text2"><span>東南アジア　どんな暮らしができるか聞いてみよう！</span></p>
+      <div class="col-md-6 col-md-offset-1">
+        <div class="img1">
+          <%= image_tag('frog.png') %>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="explain">
+          <h1><strong>H</strong>ands</h1>
+          <h1><strong>I</strong>n</h1>
+          <h1><strong>T</strong>he</h1>
+          <h1><strong>A</strong>ir</h1>
+        </div>
       </div>
     </div>
-    <div class="col-md-5">
-      <div class="explain">
-        <h1><strong>H</strong>ands</h1>
-        <h1><strong>I</strong>n</h1>
-        <h1><strong>T</strong>he</h1>
-        <h1><strong>A</strong>ir</h1>
-      </div>
-    </div>
-  </div>
   <% else %>
-  <div class="row1">
-    <h1 class="text1">Welcome to HITA</h1>
-    <br>
-    <p class="text2">東南アジア　どんな暮らしができるか聞いてみよう！</p>
-    <br><br>
-    <div class="col-md-6 col-md-offset-1">
-      <div class="img1">
-        <%= image_tag('frog.png') %>
+    <div class="row1">
+      <h1 class="text1">Welcome to HITA</h1>
+      <p class="text2">東南アジア　どんな暮らしができるか聞いてみよう！</p>
+      <div class="col-md-6 col-md-offset-1">
+        <div class="img1">
+          <%= image_tag('frog.png') %>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="explain">
+          <h1>Hands</h1>
+          <h1>In</h1>
+          <h1>The</h1>
+          <h1>Air</h1>
+        </div>
       </div>
     </div>
-    <div class="col-md-5">
-      <div class="explain">
-        <h1>Hands</h1>
-        <h1>In</h1>
-        <h1>The</h1>
-        <h1>Air</h1>
-      </div>
-    </div>
-  </div>
   <% end %>
-
   <div class="row2">
     <div class="col-md-6 col-md-offset-1">
       <h2>
-        <p>海外に住んでみたい!</p>でもリアルな生活感なのか分からず</p>
-        一歩が踏み出せない。</p>そんなときにはHITAで</p>海外在住者に質問しよう！</p>
-      </h2>
-      <br><br><br>
-      <div class="sample" style="text-align:center;">
-        <%= link_to '使い方', homes_about_path, class: "btn btn-default" %>
-      </div>
-    </div>
-    <div class="col-md-5">
-      <%= image_tag('rabbit.png') %>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <% unless user_signed_in? %>
+        <p>海外に住んでみたい!</p>
+        でもリアルな生活感なのか分からず</p>
+      一歩が踏み出せない。</p>
+    そんなときにはHITAで</p>
+  海外在住者に質問しよう！</p>
+</h2>
+<div class="sample" style="text-align:center;">
+  <%= link_to '使い方', homes_about_path, class: "btn btn-default" %>
+</div>
+</div>
+<div class="col-md-5">
+  <%= image_tag('rabbit.png') %>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% unless user_signed_in? %>
       <div class="start_btn">
         <%= link_to "HITAをはじめる", new_user_registration_path %>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
-
-
-  <% if user_signed_in? %>
+</div>
+<% if user_signed_in? %>
   <div class="row3">
     <h1 class="text1"><span>東南アジア国一覧</span></h1>
     <div class="col-md-10 col-md-offset-1">
       <div class="country_all">
         <div class="country">
           <%= link_to country_path(2) do %>
-          <span>タイ</span>
-          <div class="country_img">
-            <%= image_tag('thailand.png') %>
+            <span>タイ</span>
+            <div class="country_img">
+              <%= image_tag('thailand.png') %>
             <% end %>
           </div>
         </div>
         <div class="country">
           <%= link_to country_path(3) do %>
-          <span>ベトナム</span>
-          <div class="country_img">
-            <%= image_tag('vietnam.png') %>
+            <span>ベトナム</span>
+            <div class="country_img">
+              <%= image_tag('vietnam.png') %>
             <% end %>
           </div>
         </div>
         <div class="country">
           <%= link_to country_path(4) do %>
-          <span>カンボジア</span>
-          <div class="country_img">
-            <%= image_tag('cambodia.png') %>
+            <span>カンボジア</span>
+            <div class="country_img">
+              <%= image_tag('cambodia.png') %>
             <% end %>
           </div>
         </div>
         <div class="country">
           <%= link_to country_path(5) do %>
-          <span>インドネシア</span>
-          <div class="country_img">
-            <%= image_tag('indonesia.png') %>
+            <span>インドネシア</span>
+            <div class="country_img">
+              <%= image_tag('indonesia.png') %>
             <% end %>
           </div>
         </div>
         <div class="country">
           <%= link_to country_path(6) do %>
-          <span>フィリピン</span>
-          <div class="country_img">
-            <%= image_tag('philippines.png') %>
+            <span>フィリピン</span>
+            <div class="country_img">
+              <%= image_tag('philippines.png') %>
             <% end %>
           </div>
         </div>
         <div class="country">
           <%= link_to country_path(7) do %>
-          <span>ブルネイ</span>
-          <div class="country_img">
-            <%= image_tag('brunei.png') %>
+            <span>ブルネイ</span>
+            <div class="country_img">
+              <%= image_tag('brunei.png') %>
             <% end %>
           </div>
         </div>
         <div class="country">
           <%= link_to country_path(8) do %>
-          <span>マレーシア</span>
-          <div class="country_img">
-            <%= image_tag('malaysia.png') %>
+            <span>マレーシア</span>
+            <div class="country_img">
+              <%= image_tag('malaysia.png') %>
             <% end %>
           </div>
         </div>
         <div class="country">
           <%= link_to country_path(9) do %>
-          <span>ミャンマー</span>
-          <div class="country_img">
-            <%= image_tag('myanmar.png') %>
+            <span>ミャンマー</span>
+            <div class="country_img">
+              <%= image_tag('myanmar.png') %>
             <% end %>
           </div>
         </div>
         <div class="country">
           <%= link_to country_path(10) do %>
-          <span>シンガポール</span>
-          <div class="country_img">
-            <%= image_tag('singapore.png') %>
+            <span>シンガポール</span>
+            <div class="country_img">
+              <%= image_tag('singapore.png') %>
             <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <% end %>
+<% end %>
 </div>
-
 <%= stylesheet_link_tag 'homes' %>
