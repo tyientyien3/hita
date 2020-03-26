@@ -1,9 +1,9 @@
 <div class="<%= "underline" if user_signed_in? %>">
-  <div class="my-5">
+  <div class="my-3">
     <h1 class="text-center"><span class="underline-orange">Welcome to HITA</span></h1>
     <h4 class="text-center"><span class="underline-orange">東南アジア　どんな暮らしができるか聞いてみよう！</span></h4>
   </div>
-  <div class="row">
+  <div class="row my-5">
     <div class="col-md-6 offset-md-1">
       <div class="img1">
         <%= image_tag('frog.png') %>
@@ -19,23 +19,25 @@
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row my-5">
   <div class="col-md-6 offset-md-1">
     <h2>
-      <p>海外に住んでみたい!</p>
-      でもリアルな生活感なのか分からず</p>
-    一歩が踏み出せない。</p>
-  そんなときにはHITAで</p>
-海外在住者に質問しよう！</p>
-</h2>
-<div class="sample" style="text-align:center;">
-  <%= link_to '使い方', homes_about_path, class: "btn btn-default" %>
+      <p>海外に住んでみたい!<br>
+        でもリアルな生活感なのか分からず<br>
+        一歩が踏み出せない。<br>
+        そんなときにはHITAで<br>
+        海外在住者に質問しよう！<br>
+      </p>
+    </h2>
+    <div class="sample" style="text-align:center;">
+      <%= link_to '使い方', homes_about_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <%= image_tag('rabbit.png') %>
+  </div>
 </div>
-</div>
-<div class="col-md-5">
-  <%= image_tag('rabbit.png') %>
-</div>
-</div>
+<%# 未ログイン時に表示 %>
 <div class="row">
   <div class="col-md-6 offset-md-3">
     <% unless user_signed_in? %>
@@ -45,9 +47,10 @@
     <% end %>
   </div>
 </div>
+<%# ログイン時に表示 %>
 <% if user_signed_in? %>
+  <h1 class="text-center">東南アジア国一覧</h1>
   <div class="row">
-    <h1 class="text-center">東南アジア国一覧</h1>
     <div class="col-md-10 offset-md-1">
       <div class="country_all">
         <div class="country">
@@ -126,5 +129,4 @@
     </div>
   </div>
 <% end %>
-</div>
 <%= stylesheet_link_tag 'homes' %>

@@ -1,44 +1,39 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.underline span.underline-orange{
+.underline span.underline-orange {
   background: linear-gradient(transparent 50%,rgba(247, 198, 104, 0.2) 50%,rgb(247, 198, 104) 75%,rgba(247, 198, 104, 0.2));
   font-weight: bold;
 }
 
-.underline span.underline-blue{
+.underline span.underline-blue {
   background: linear-gradient(transparent 50%,rgba(247, 198, 104, 0.2) 50%,rgb(71, 250, 238) 75%,rgba(247, 198, 104, 0.2));
   font-weight: bold;
 }
 
-
-.explain{
+.explain {
   float: left;
   padding-left: 100px;
 }
 
-
-.img1, .img2, .img3{
+.img1, .img2, .img3 {
   float: left;
   padding-left: 100px;
 }
 
-.step_one, .step_two, .step_three {
-  width: 100px;
+.step {
+  width: 130px;
   text-align: center;
   font-family: 'Bangers';
   position: relative;
 	padding-left: 25px
-
-
 }
 
-.step_one_text, .step_two_text, .step_three_text{
+.step_one_text, .step_two_text, .step_three_text {
   padding: 100px;
 }
 
-
-.step_one:before, .step_two:before, .step_three:before {
+.step:before {
 	position: absolute;
 	content: '';
 	bottom: -4px;
@@ -49,7 +44,8 @@
 	border-left: solid 15px transparent;
 	border-bottom: solid 15px black;
 }
-.step_one:after, .step_two:after, .step_three:after {
+
+.step:after {
 	position: absolute;
 	content: '';
 	bottom: -4px;
@@ -58,23 +54,24 @@
 	border-bottom: solid 4px black;
 }
 
-span{
+span {
   color: black;
 }
 
-.country{
+.country {
   margin: 35px;
   float: left;
 }
-.country_img{
+
+.country_img {
   border:solid 1px #000000;
 }
 
-.country_all{
+.country_all {
   margin-left: 100px;
 }
 
-.start_btn{
+.start_btn {
   margin-bottom: 100px;
   margin-left: 230px;
 }
@@ -90,6 +87,7 @@ span{
 	background: #fff;
 	border:1px solid #1B1B1B;
 }
+
 .start_btn:hover {
 	background: #d3d3d3;
   color: #fff;
