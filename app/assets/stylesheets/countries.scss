@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// 都市一覧の文字
+.regions_list a{
+  color: black;
+}
+// 都市一覧の文字　マウスオーバー時
+.regions_list a:hover{
+  color: white;
+}
 // 都市一覧
 .region{
   width: 130px;
@@ -14,6 +22,11 @@
   border-bottom: solid 2px #333;
   background-color: #f4f4f4;
   float: left;
+  text-align: center;
+}
+// 都市一覧　マウスオーバー時
+.region:hover{
+  background-color: #464343;
 }
 // ページトップの国・都市名
 .pagetop{
@@ -32,7 +45,6 @@
   color: black;
   text-align: center;
   word-wrap: break-word;
-  
 }
 // ユーザー一覧
 .user_box_head{

@@ -5,9 +5,9 @@ class RegionsController < ApplicationController
     @region = Region.find(params[:id])
     # 質問一覧
     questions = @region.questions
-    @pagenated_questions = questions.page(params[:page]).per(8)
+    @pagenated_questions = questions.page(params[:page]).per(6)
     # ユーザー一覧
     users = @region.users
-    @pagenated_users = users.page(params[:page]).per(8)
+    @pagenated_users = users.page(params[:page]).per(6)
   end
 end
