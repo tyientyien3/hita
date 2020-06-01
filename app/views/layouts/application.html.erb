@@ -1,101 +1,53 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <title>Hita</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
-
-<body>
-  <%# HEADER %>
-  <header>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="container-fluid" style="background-color: white; color: #696969;">
-          <%= link_to root_path do %>
-          <div class="logo navbar-left">
-            <p class="flexiblebox">HITA</p>
-          </div>
-          <% end %>
-          <nav class="nav navbar navbar-nav navbar-right">
-            <%# ログイン中  %>
-            <% if user_signed_in? %>
-            <p class="navbar-text">
-              Hello,<%= current_user.username %>
-            </p>
-            <li class="nav-item">
-              <%= link_to "TOP",  root_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "COUNTRY",  homes_country_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "MY PAGE",  user_path(current_user.id), class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "LOG OUT",  destroy_user_session_path, method: :delete, class: "nav-link" %>
-            </li>
-            <% else %>
-            <%# 未ログイン %>
-            <p class="navbar-text">
-              ようこそ!ゲストさん！
-            </p>
-            <li class="nav-item">
-              <%= link_to "TOP",  root_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ABOUT",  homes_about_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "LOG IN", user_session_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "SIGN UP", new_user_registration_path, class: "nav-link" %>
-            </li>
-            <% end %>
-          </nav>
-        </div>
-      </div>
+  <head>
+    <title>Hita</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header>
+        <%= render 'layouts/header' %>
+      </header>
     </div>
-  </header>
-
-  <%# MAIN %>
-  <main>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <%# FLASH MESSAGE %>
-        <% if flash[:notice] %>
-        <div class="row">
-          <p class="text-success">
-            <%= flash[:notice]%>
-          </p>
-        </div>
-        <% elsif flash[:alert] %>
-        <div class="row">
-          <p class="text-danger">
-            <%= flash[:alert]%>
-          </p>
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="yield">
-      <%= yield %>
-    </div>
-  </main>
-
-
-  <%# FOOTER %>
-  <footer>
+    <%# エラーメッセージ %>
     <div class="container">
-      <div class="copyright">
-        <p class="text-center">© 2020 HITA</p>
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <% if flash[:notice] %>
+            <div class="row">
+              <p class="text-success">
+                <%= flash[:notice]%>
+              </p>
+            </div>
+          <% elsif flash[:alert] %>
+            <div class="row">
+              <p class="text-danger">
+                <%= flash[:alert]%>
+              </p>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  </footer>
-</body>
-
+    <%# メイン %>
+    <main>
+      <div class="container">
+        <div class="yield">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+    <%# フッタ %>
+    <div class="container">
+      <footer>
+        <div class="copyright">
+          <p class="text-center">© 2020 HITA</p>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>

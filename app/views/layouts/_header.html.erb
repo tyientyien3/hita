@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <%# ロゴ %>
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <div class="logo">
+              <p>HITA</p>
+            </div>
+          <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <%# ロゴの右隣 %>
+            <ul class="navbar-nav mr-auto">　
+              <p class="navbar-text">
+                Hello, <%= user_signed_in? ? current_user.username : "guest" %> さん！
+              </p>
+            </ul>
+            <%# ヘッダ右側 %>
+            <%# ログイン中 %>
+            <ul class="navbar-nav">
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "TOP",  root_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "COUNTRY",  homes_country_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "MY PAGE",  user_path(current_user.id), class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "LOG OUT",  destroy_user_session_path, method: :delete, class: "nav-link" %>
+                </li>
+              <% else %>
+                <%# 未ログイン %>
+                <li class="nav-item">
+                  <%= link_to "TOP",  root_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ABOUT",  homes_about_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "LOG IN", user_session_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "SIGN UP", new_user_registration_path, class: "nav-link" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
