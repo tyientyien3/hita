@@ -71,26 +71,47 @@ span {
   margin-left: 100px;
 }
 
-.start_btn {
-  margin-bottom: 100px;
-  margin-left: 230px;
+// 新規登録ボタン
+.signin_actions {
+  font-size: 30px;
+  border: 2px solid black;
+  color: black;
+  padding: 20px;
+  margin-left: 50px;
+  text-decoration:none !important
+}
+// 新規登録ボタン押すとボーダーを点線にする
+.signin_actions:hover {
+  border-style: dashed;
+  text-decoration:none !important
+}
+// ログインボタン押すとボーダーを点線にする
+.login_actions {
+  font-size: 30px;
+  color: black;
+  border: 2px solid black;
+  padding: 20px;
+  margin-left: 10px;
+  text-decoration:none !important
+}
+// ログインボタン
+.login_actions:hover {
+  border-style: dashed;
+  text-decoration:none !important
+}
+.login_sigin_ations{
+  line-height: 300px;
 }
 
-.start_btn {
-	display: block;
-	position: relative;
-	width: 160px;
-	padding: 0.8em;
-	text-align: center;
-	text-decoration: none;
-	color: #a9a9a9;
-	background: #fff;
-	border:1px solid #1B1B1B;
+.logo {
+  font-family: 'HGP行書体', cursive;
+  font-size: 80px;
+  line-height: 50px;
+  font-weight: 600;
+  color:  black;
+  margin-top: 2.0rem;
 }
 
-.start_btn:hover {
-	background: #d3d3d3;
-  color: #fff;
-	cursor: pointer;
-	text-decoration: none;
+.intro{
+  margin-top: 150px;
 }
