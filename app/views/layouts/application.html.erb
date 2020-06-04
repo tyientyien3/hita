@@ -8,13 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div class="container-fluid">
-      <header>
+      <header class='sticky-top'>
         <%= render 'layouts/header' %>
       </header>
-    </div>
     <%# エラーメッセージ %>
-    <div class="container">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <% if flash[:notice] %>
@@ -32,22 +29,17 @@
           <% end %>
         </div>
       </div>
-    </div>
     <%# メイン %>
     <main>
-      <div class="container">
         <div class="yield">
           <%= yield %>
         </div>
-      </div>
     </main>
     <%# フッタ %>
-    <div class="container">
-      <footer>
+      <footer calss="sticky-bottom">
         <div class="copyright">
           <p class="text-center">© 2020 HITA</p>
         </div>
       </footer>
-    </div>
   </body>
 </html>
