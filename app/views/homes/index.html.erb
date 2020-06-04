@@ -1,96 +1,32 @@
+<div class="intro">
+  <h1 class="text-center logo">HITA</h1>
+  <h1 class="text-center">TO TAKE A STEP</h1>
+</div>
+<%# ログイン時に表示 %>
+<% if user_signed_in? %>
+  <%# 回答済みの質問一覧　ランダム %>
+  <h2 class="text-center mt-5">◆回答済みの質問◆</h2>
+  <div class="row mx-auto">
 
-  <div class="intro">
-    <h1 class="text-center logo">HITA</h1>
-    <h1 class="text-center">TO TAKE A STEP</h1>
-  </div>
+  <% @random.each do |book| %>
+    <div class="card mx-auto my-2 w-75">
+      <div class="card-body">
+        <span class="badge badge-light">country</span>
+        <span class="badge badge-dark">region</span>
+        ♡
+        <%= book.question %>
+      </div>
+    </div>
+  <% end %>
 
-<%# 未ログイン時に表示 %>
-<div class="row">
+<% else %>
+  <%# 未ログイン時に表示 %>
+  <div class="row">
     <div class="mx-auto login_sigin_ations">
       <%= link_to "新規登録", new_user_registration_path, class: "signin_actions" %>
       <%= link_to "ログイン", new_user_session_path, class: "login_actions" %>
     </div>
-</div>
-<%# ログイン時に表示 %>
-<% if user_signed_in? %>
-  <h1 class="text-center">東南アジア国一覧</h1>
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <div class="country_all">
-        <div class="country">
-          <%= link_to country_path(2) do %>
-            <span>タイ</span>
-            <div class="country_img">
-              <%= image_tag('thailand.png') %>
-            <% end %>
-          </div>
-        </div>
-        <div class="country">
-          <%= link_to country_path(3) do %>
-            <span>ベトナム</span>
-            <div class="country_img">
-              <%= image_tag('vietnam.png') %>
-            <% end %>
-          </div>
-        </div>
-        <div class="country">
-          <%= link_to country_path(4) do %>
-            <span>カンボジア</span>
-            <div class="country_img">
-              <%= image_tag('cambodia.png') %>
-            <% end %>
-          </div>
-        </div>
-        <div class="country">
-          <%= link_to country_path(5) do %>
-            <span>インドネシア</span>
-            <div class="country_img">
-              <%= image_tag('indonesia.png') %>
-            <% end %>
-          </div>
-        </div>
-        <div class="country">
-          <%= link_to country_path(6) do %>
-            <span>フィリピン</span>
-            <div class="country_img">
-              <%= image_tag('philippines.png') %>
-            <% end %>
-          </div>
-        </div>
-        <div class="country">
-          <%= link_to country_path(7) do %>
-            <span>ブルネイ</span>
-            <div class="country_img">
-              <%= image_tag('brunei.png') %>
-            <% end %>
-          </div>
-        </div>
-        <div class="country">
-          <%= link_to country_path(8) do %>
-            <span>マレーシア</span>
-            <div class="country_img">
-              <%= image_tag('malaysia.png') %>
-            <% end %>
-          </div>
-        </div>
-        <div class="country">
-          <%= link_to country_path(9) do %>
-            <span>ミャンマー</span>
-            <div class="country_img">
-              <%= image_tag('myanmar.png') %>
-            <% end %>
-          </div>
-        </div>
-        <div class="country">
-          <%= link_to country_path(10) do %>
-            <span>シンガポール</span>
-            <div class="country_img">
-              <%= image_tag('singapore.png') %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 <% end %>
+
 <%= stylesheet_link_tag 'homes' %>

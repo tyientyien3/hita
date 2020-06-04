@@ -12,3 +12,5 @@ class CountriesController < ApplicationController
     @pagenated_users = users.page(params[:page]).per(6)
   end
 end
+
+
