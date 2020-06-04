@@ -1,35 +1,51 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <h3>質問内容</h3>
-      <%= attachment_image_tag @question.questioner, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
-      <%= link_to user_path(@question.questioner) do %>
-        <%= @question.questioner.username %>
-      <% end %>
-      <% if @question.errors.any? %>
-        <div class="alert alert-warning">
-          <ul>
-            <% @question.errors.full_messages.each do |message| %>
-              <li><%= message %> error </li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      <div class="question">
+<div class="row mx-5">
+  <%# 質問者 %>
+  <div class="col-5">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">質問内容</h4>
         <p><%= @question.question %></p>
       </div>
-      <div>回答はこちら</div>
-      <div class="edit_answer">
-        <%= form_for(@question, url: user_question_path) do |f| %>
-          <%= f.text_area :answer, size: "60x10" %>
-          <%= f.submit '回答する',class: "btn btn-primary" %>
-          <%= link_to "戻る", :back, class:'btn btn-default' %>
-          <div class="text-right">
-            <%= link_to "質問を削除する", user_question_path(@user, @question), class: "btn btn-danger", method: :delete, "data-confirm" => "この質問を削除します" %>
-          <% end %>
-        </div>
+      <div class="card-footer">
+        <%= attachment_image_tag @question.questioner, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
+        <%= link_to user_path(@question.questioner) do %>
+          <%= @question.questioner.username %>
+        <% end %>
       </div>
     </div>
   </div>
+  <%# 矢印 %>
+  <div class="col-1">
+    <h1 class="text-center mt-5"><i class="far fa-hand-point-right"></i></h1>
+  </div>
+
+
+
+  <%# 回答者 %>
+  <div class="col-5">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">回答内容</h4>
+          <%= form_for(@question, url: user_question_path) do |f| %>
+          <%= f.text_area :answer, size: "45x5" %>
+
+      </div>
+      <div class="card-footer">
+        <%= attachment_image_tag @question.questionee, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
+        <%= link_to user_path(@question.questionee) do %>
+          <%= @question.questionee.username %>
+        <% end %>
+      </div>
+          <%= f.submit '回答する',class: "btn btn-primary" %>
+          <%= link_to "戻る", :back, class:'btn btn-outline-secondary mt-5' %>
+          <%= link_to "質問を削除する", user_question_path(@user, @question), class: "btn btn-danger mt-2", method: :delete, "data-confirm" => "この質問を削除します" %>
+          <% end %>
+    </div>
+  </div>
 </div>
-<%= stylesheet_link_tag 'questions' %>
+<div class="row mx-5">
+  <div class="col">
+
+  </div>
+</div>
+<%= stylesheet_link_tag "questions" %>
