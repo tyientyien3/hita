@@ -1,38 +1,59 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <h3>質問内容</h3>
-      <%# 質問者名前 %>
-      <%= attachment_image_tag @question.questioner, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
-      <%= link_to user_path(@question.questioner) do %>
-        <%= @question.questioner.username %>
-      <% end %>
-      <div class="question">
+<div class="row mx-5">
+  <%# 質問者 %>
+  <div class="col-5">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">質問内容</h4>
         <p><%= @question.question %></p>
       </div>
-      <h3>回答内容</h3>
-      <%# 回答者名前 %>
-      <%= attachment_image_tag @question.questionee, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
-      <%= link_to user_path(@question.questionee) do %>
-        <%= @question.questionee.username %>
-      <% end %>
-      <div class="favorite">
-        <%= "いいね" %>
-        <%# いいね機能 %>
-        <% if current_user.already_liked?(@question) %>
-          <%= link_to "", question_favorites_path(@question), method: :delete, class: "glyphicon glyphicon-heart" %><%= @question.favorites.count %>
-        <% else %>
-          <%= link_to "", question_favorites_path(@question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= @question.favorites.count %>
+      <div class="card-footer">
+        <%= attachment_image_tag @question.questioner, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
+        <%= link_to user_path(@question.questioner) do %>
+          <%= @question.questioner.username %>
         <% end %>
       </div>
-      <div class="answer">
-        <p><%= @question.answer %></p>
-      </div>
-      <% if current_user == @question.questionee %>
-        <%= link_to "質問に答える", edit_user_question_path(@question.questionee_id, @question), class: "btn btn-primary" %>
-      <% end %>
-      <%= link_to "戻る", user_path(@user), class: "btn btn-default" %>
     </div>
+  </div>
+  <%# 矢印 %>
+  <div class="col-1">
+    <h1 class="text-center mt-5"><i class="far fa-hand-point-right"></i></h1>
+  </div>
+  <%# 回答者 %>
+  <div class="col-5">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">回答内容</h4>
+        <p><%= @question.answer %></p>
+        <div class="favorite">
+          <%# いいね機能 %>
+          <% if current_user.already_liked?(@question) %>
+            <%= link_to question_favorites_path(@question), method: :delete do %>
+              <span style="color:red;"><i class="fas fa-heart"></i></span>
+              <%= @question.favorites.count %>
+            <% end %>
+          <% else %>
+            <%= link_to question_favorites_path(@question), :method => :post do %>
+              <span style="color:red;"><i class="far fa-heart"></i></span>
+              <%= @question.favorites.count %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="card-footer">
+        <%= attachment_image_tag @question.questionee, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
+        <%= link_to user_path(@question.questionee) do %>
+          <%= @question.questionee.username %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mx-5">
+  <div class="col">
+    <% if current_user == @question.questionee %>
+      <%= link_to "質問に答える", edit_user_question_path(@question.questionee_id, @question), class: "btn btn-primary" %>
+    <% end %>
+  <%= link_to "戻る", user_path(@user), class: "btn btn-outline-secondary" %>
   </div>
 </div>
 <%= stylesheet_link_tag "questions" %>
