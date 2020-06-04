@@ -8,38 +8,38 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-      <header class='sticky-top'>
-        <%= render 'layouts/header' %>
-      </header>
+    <header class='sticky-top'>
+      <%= render 'layouts/header' %>
+    </header>
     <%# エラーメッセージ %>
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <% if flash[:notice] %>
-            <div class="row">
-              <p class="text-success">
-                <%= flash[:notice]%>
-              </p>
-            </div>
-          <% elsif flash[:alert] %>
-            <div class="row">
-              <p class="text-danger">
-                <%= flash[:alert]%>
-              </p>
-            </div>
-          <% end %>
-        </div>
-      </div>
+    <% if flash[:notice] %>
+      <p class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= flash[:notice]%>
+        <%# メッセージ消すボタン %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </p>
+    <% elsif flash[:alert] %>
+      <p class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= flash[:alert]%>
+        <%# メッセージ消すボタン %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </p>
+    <% end %>
     <%# メイン %>
     <main>
-        <div class="yield">
-          <%= yield %>
-        </div>
+      <div class="yield">
+        <%= yield %>
+      </div>
     </main>
     <%# フッタ %>
-      <footer calss="sticky-bottom">
-        <div class="copyright">
-          <p class="text-center">© 2020 HITA</p>
-        </div>
-      </footer>
+    <footer calss="sticky-bottom">
+      <div class="copyright">
+        <p class="text-center">© 2020 HITA</p>
+      </div>
+    </footer>
   </body>
 </html>
