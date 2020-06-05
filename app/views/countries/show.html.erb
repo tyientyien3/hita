@@ -5,7 +5,7 @@
         <h1><%=@country.country_name %> のページ</h1>
       </div>
       <%# 都市一覧 %>
-      <h3><%=@country.country_name %> の都市一覧</h3>
+      <h3 class="text-center"><%=@country.country_name %> の都市一覧</h3>
       <div class="regions_list">
         <% @regions.each do |region| %>
           <%= link_to region_path(region.id) do %>
@@ -19,70 +19,20 @@
   </div>
   <%#　質問一覧 %>
   <div class="row">
-    <% @pagenated_questions.each do |question| %>
-      <%= link_to user_question_path(question.questionee_id, question.id) do %>
-        <div class="card mx-auto my-2 w-75">
-          <div class="card-body">
-            <div class="">
-              <% if question.answer == nil%>
-                <span class="badge badge-info">未回答</span>
-              <% else%>
-                <span class="badge badge-warning">回答済</span>
-              <% end %>
-              <%# いいね機能 %>
-              <% if current_user.already_liked?(question) %>
-                <%= link_to  question_favorites_path(question), method: :delete do %>
-                  <span style="color:#ff7f50;"><i class="fas fa-heart"></i></span>
-                <% end %>
-                <%= question.liked_users.count %>
-              <% else %>
-                <%= link_to  question_favorites_path(question), :method => :post do %>
-                  <span style="color:#ff7f50;"><i class="far fa-heart"></i></span>
-                <% end %>
-                <%= question.liked_users.count %>
-              <% end %> <%= question.region.region_name %>
-              <br>
-              <i class="fal fa-heart-square"></i>
-              <span><%= question.question %></span>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-    <div class="col-md-10 offset-md-1">
-      <h2>質問一覧</h2>
-      <div class="question">
-        <% @pagenated_questions.each do | question | %>
-          <%= link_to user_question_path(question.questionee_id, question.id) do %>
-            <div class="question_box">
-              <% if question.answer == nil%>
-                <button type="button" class="btn btn-info btn-sm"><%= "未回答" %></button>
-              <% else%>
-                <button type="button" class="btn btn-primary btn-sm"><%= "回答済" %></button>
-              <% end %>
-              <%# いいね機能 %>
-              <% if current_user.already_liked?(question) %>
-                <%= link_to "", question_favorites_path(question), method: :delete, class: "glyphicon glyphicon-heart" %><%= question.liked_users.count %>
-              <% else %>
-                <%= link_to "", question_favorites_path(question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= question.liked_users.count %>
-              <% end %> <%= question.region.region_name %>
-              <br>
-              <span><%= question.question %></span>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+    <div class="mx-auto questions">
+    <h2 class="text-center mt-4">質問一覧</h2>
+      <%= render 'countries/questions', pagenated_questions: @pagenated_questions %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 offset-md-4">
+    <div class="mx-auto">
       <%= paginate @pagenated_questions %>
     </div>
   </div>
   <%#　ユーザー一覧 %>
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <h2>ユーザー一覧</h2>
+      <h2 class="text-center">ユーザー一覧</h2>
       <div class="user">
         <% @pagenated_users.each do | user | %>
           <%= link_to   user_path(user) do %>
@@ -99,7 +49,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 offset-md-4">
+    <div class="mx-auto">
       <%= paginate @pagenated_users %>
     </div>
   </div>

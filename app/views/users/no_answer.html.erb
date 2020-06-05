@@ -1,33 +1,9 @@
-<div class="container">
+<h2 class="text-center pt-3">◆未回答の質問◆</h2>
   <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <h2>未回答　質問一覧</h2>
-      <div class="question">
-        <% @pagenated_questions.each do | na_question | %>
-          <%= link_to user_question_path(@user, na_question) do %>
-            <div class="question_box">
-              <button type="button" class="btn btn-default btn-sm"><%= "答える" %></button>
-              <%# いいね機能 %>
-              <% if current_user.already_liked?(na_question) %>
-                <%= link_to "",  question_favorites_path(na_question), method: :delete, class: "glyphicon glyphicon-heart" %><%= na_question.liked_users.count %>
-              <% else %>
-                <%= link_to "",  question_favorites_path(na_question), :method => :post, class: "glyphicon glyphicon-heart-empty" %><%= na_question.liked_users.count %>
-              <% end %>
-              <br>
-              <span><%= na_question.question %></span>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 offset-md-4">
-      <%= paginate @pagenated_questions %>
-    </div>
+    <%= render 'countries/questions', pagenated_questions: @pagenated_questions %>
   </div>
   <div class="text-center">
-    <%= link_to "戻る", user_path(@user) ,class: "btn btn-default"%>
+    <%= link_to "戻る", user_path(@user) ,class: "btn btn-outline-dark"%>
   </div>
-</div>
+
 <%= stylesheet_link_tag 'question_boxes' %>
