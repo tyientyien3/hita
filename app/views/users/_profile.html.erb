@@ -1,11 +1,13 @@
+  <%# 質問ボタン %>
   <% if user != current_user %>
-  <div class="text-center">
-    <%= link_to new_user_question_path(user) do %>
-      <div class="button">
-        <%= user.username %>さんに質問する
+  <%= link_to new_user_question_path(user) do %>
+    <div class="box-1 mx-auto mb-4">
+      <div class="btn btn-one">
+        <h3>ASK</h3>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
 <% end %>
 <div class="row">
   <div class="col-5">
@@ -57,15 +59,5 @@
     <%= user.introduction %>
   </div>
 </div>
-<%# 他ユーザー時に表示 %>
-<% if user != current_user %>
-  <div class="text-center">
-    <%= link_to new_user_question_path(user) do %>
-      <div class="button">
-        <%= user.username %>さんに質問する
-      </div>
-    <% end %>
-  </div>
-<% end %>
 
 <%= stylesheet_link_tag 'users' %>
