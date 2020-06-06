@@ -7,7 +7,6 @@
       </div>
     </div>
   <% end %>
-</div>
 <% end %>
 <div class="row">
   <div class="col-5">
@@ -15,13 +14,13 @@
       <%= attachment_image_tag user, :profile_image, :fill, 250, 250, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
     </div>
   </div>
-  <div class="col-7">
+  <div class="col-5">
     <table class="table">
       <tbody>
         <tr>
           <th scope="row">名前</th>
           <td>
-            <h3><%= user.username %></h3>
+            <%= user.username %>
           </td>
         </tr>
         <tr>
@@ -40,9 +39,9 @@
           <tr>
             <th scope="row">未回答の質問　</th>
             <td>
-              <%= link_to no_answer_user_path(user) do %>
-                <%= no_answers %>
-              <% end %>件
+              <%= link_to no_answer_user_path(user), :style=>"color:#ff9500;" do %>
+                <i class="fas fa-arrow-alt-circle-right"></i><%= no_answers %>件
+              <% end %>
             </td>
           </tr>
           <%= link_to  edit_user_path(user.id), class: "btn btn-outline-dark mb-2" do %>

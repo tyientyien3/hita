@@ -1,5 +1,5 @@
 <%# 質問者 %>
-<div class="card">
+<div class="card mx-auto mt-3 w-75">
   <div class="card-body">
     <h4 class="card-title">質問内容</h4>
     <p><%= @question.question %></p>
@@ -14,7 +14,7 @@
 <%# 矢印 %>
 <h1 class="text-center my-2"><i class="far fa-hand-point-down"></i></h1>
 <%# 回答者 %>
-<div class="card">
+<div class="card mx-auto w-75">
   <div class="card-body">
     <h4 class="card-title">回答内容</h4>
     <p><%= @question.answer %></p>
