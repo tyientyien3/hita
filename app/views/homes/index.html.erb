@@ -4,17 +4,11 @@
 </div>
 <%# ログイン時に表示 %>
 <% if user_signed_in? %>
-  <%# 回答済みの質問一覧　ランダム %>
-  <h2 class="text-center mt-5">◆回答済みの質問◆</h2>
-  <div class="row mx-auto">
 
-  <% @random.each do |book| %>
-    <div class="card mx-auto my-2 w-75">
-      <div class="card-body">
-        <span class="badge badge-light">country</span>
-        <span class="badge badge-dark">region</span>
-        ♡
-        <%= book.question %>
+  <%= link_to homes_country_path do %>
+    <div class="box-1 mx-auto">
+      <div class="btn btn-one">
+        <h3 class="text-center">質問したい国を探す</h3>
       </div>
     </div>
   <% end %>
@@ -28,5 +22,6 @@
     </div>
   </div>
 <% end %>
+
 
 <%= stylesheet_link_tag 'homes' %>
