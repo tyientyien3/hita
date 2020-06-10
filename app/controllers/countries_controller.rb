@@ -6,10 +6,10 @@ class CountriesController < ApplicationController
     @regions = Region.where(country_id: params[:id])
     # 質問一覧
     questions = @country.questions
-    @pagenated_questions = questions.page(params[:page]).per(6)
+    @pagenated_questions = questions.page(params[:page]).per(8)
     # ユーザー一覧
     users = @country.users
-    @pagenated_users = users.page(params[:page]).per(6)
+    @pagenated_users = users.page(params[:page]).per(8)
   end
 end
 
