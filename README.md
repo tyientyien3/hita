@@ -28,6 +28,7 @@ HITA  (URL:http://hita.tokyo/)
 * git version 2.17.1
 * ruby 2.5.7
 * Rails 5.2.4.1
+
 2.gem
 * devise
 * bootstrap
@@ -35,6 +36,7 @@ HITA  (URL:http://hita.tokyo/)
 * refile、refile-mini_magick
 * jquery-rails
 * pry-byebug
+
 3.デプロイ
 * AWS
 
