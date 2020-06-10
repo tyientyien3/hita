@@ -6,7 +6,7 @@
   </div>
   <div class="card-footer">
     <%= attachment_image_tag @question.questioner, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
-    <%= link_to user_path(@question.questioner) do %>
+    <%= link_to user_path(@question.questioner), class: "username" do %>
       <%= @question.questioner.username %>
     <% end %>
   </div>
@@ -35,15 +35,13 @@
   </div>
   <div class="card-footer">
     <%= attachment_image_tag @question.questionee, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
-    <%= link_to user_path(@question.questionee) do %>
+    <%= link_to user_path(@question.questionee), class: "username" do %>
       <%= @question.questionee.username %>
     <% end %>
   </div>
-
   <% if current_user == @question.questionee %>
-  <%= link_to "質問に答える", edit_user_question_path(@question.questionee_id, @question), class: "btn btn-outline-primary mx-5 my-5" %>
-<% end %>
+    <%= link_to "質問に答える", edit_user_question_path(@question.questionee_id, @question), class: "btn btn-outline-primary mx-5 my-5" %>
+  <% end %>
   <%= link_to "戻る", user_path(@user), class: "btn btn-outline-secondary mx-5 mb-5" %>
 </div>
-
 <%= stylesheet_link_tag "questions" %>

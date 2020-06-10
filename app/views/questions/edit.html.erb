@@ -6,9 +6,11 @@
   </div>
   <div class="card-footer">
     <%= attachment_image_tag @question.questioner, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
-    <%= link_to user_path(@question.questioner) do %>
-      <%= @question.questioner.username %>
-    <% end %>
+
+      <%= link_to user_path(@question.questioner), class: "username" do %>
+        <%= @question.questioner.username %>
+      <% end %>
+
   </div>
 </div>
 <%# 矢印 %>
@@ -22,13 +24,15 @@
     </div>
     <div class="card-footer">
       <%= attachment_image_tag @question.questionee, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'40x40' %>
-      <%= link_to user_path(@question.questionee) do %>
-        <%= @question.questionee.username %>
-      <% end %>
-    </div>
-              <%= f.submit '回答する',class: "btn btn-outline-primary" %>
-              <%= link_to "戻る", :back, class:'btn btn-outline-dark my-2' %>
-          <%= link_to "質問を削除する", user_question_path(@user, @question), class: "btn btn-outline-danger my-2", method: :delete, "data-confirm" => "この質問を削除します" %>
+
+        <%= link_to user_path(@question.questionee), class: "username" do %>
+          <%= @question.questionee.username %>
         <% end %>
-  </div>
-  <%= stylesheet_link_tag "questions" %>
+
+    </div>
+    <%= f.submit '回答する',class: "btn btn-outline-primary" %>
+    <%= link_to "戻る", :back, class:'btn btn-outline-dark my-2' %>
+    <%= link_to "質問を削除する", user_question_path(@user, @question), class: "btn btn-outline-danger my-2", method: :delete, "data-confirm" => "この質問を削除します" %>
+  <% end %>
+</div>
+<%= stylesheet_link_tag "questions" %>

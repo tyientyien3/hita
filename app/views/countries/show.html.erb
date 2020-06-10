@@ -1,60 +1,45 @@
-
-
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
+<div class="row">
+  <div class="col-md-6 offset-md-3">
     <h2 class="text-center my-3">◆質問したいユーザーを選ぶ◆</h2>
-      <%# 都市一覧 %>
-      <h3 class="text-center"><%=@country.country_name %> の都市一覧</h3>
-      <div class="regions_list">
-        <% @regions.each do |region| %>
-          <%= link_to region_path(region.id) do %>
-            <div class="region">
-              <%= region.region_name %>
-            </div>
-          <% end %>
+    <%# 都市一覧 %>
+    <h3 class="text-center"><%=@country.country_name %> の都市一覧</h3>
+    <div class="regions_list">
+      <% @regions.each do |region| %>
+        <%= link_to region_path(region.id) do %>
+          <div class="region">
+            <%= region.region_name %>
+          </div>
         <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%#　ユーザー/質問一覧 %>
+<ul class="nav nav-tabs mx-auto">
+  <li class="nav-item card mt-3 mx-auto w-50">
+    <h2 class="nav-link text-center active" data-toggle="tab" href="#users">ユーザー一覧</h2>
+  </li>
+  <li class="nav-item card mt-3 mx-auto w-50 ">
+    <h2 class="nav-link text-center" data-toggle="tab" href="#questions">質問一覧</h2>
+  </li>
+</ul>
+<div class="tab-content mt-3">
+  <div id="users" class="tab-pane active">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 mt-3">
+        <h2 class="text-center">ユーザー一覧</h2>
+        <%= render 'countries/users', users: @users %>
       </div>
     </div>
   </div>
-
-    <%#　ユーザー一覧 %>
-  <div class="row">
-    <div class="col-md-10 offset-md-1 mt-3">
-      <h2 class="text-center">ユーザー一覧</h2>
-      <div class="user">
-        <% @pagenated_users.each do | user | %>
-          <%= link_to   user_path(user) do %>
-            <div class="user_box">
-              <div class="user_box_head">
-                <span><%= user.country.country_name %>|<%= user.region.region_name %></span>
-              </div>
-              <span><%= user.username %></span>
-              <%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size: "50x50" %>
-            </div>
-          <% end %>
-        <% end %>
+  <div id="questions" class="tab-pane">
+    <div class="row">
+      <div class="mx-auto questions">
+        <h2 class="text-center mt-4">質問一覧</h2>
+        <%= render 'countries/questions', questions: @questions %>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="mx-auto">
-      <%= paginate @pagenated_users %>
-    </div>
-  </div>
+</div>
 
-
-  <%#　質問一覧 %>
-  <div class="row">
-    <div class="mx-auto questions">
-    <h2 class="text-center mt-4">質問一覧</h2>
-      <%= render 'countries/questions', pagenated_questions: @pagenated_questions %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="mx-auto">
-      <%= paginate @pagenated_questions %>
-    </div>
-  </div>
-
-<%= stylesheet_link_tag 'question_boxes' %>
 <%= stylesheet_link_tag 'countries' %>

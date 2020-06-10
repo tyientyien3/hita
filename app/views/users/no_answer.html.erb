@@ -1,7 +1,5 @@
 <h2 class="text-center pt-3">◆未回答の質問◆</h2>
-  <div class="row">
-    <%= render 'countries/questions', pagenated_questions: @pagenated_questions %>
-  </div>
+    <%= render 'countries/questions', questions: @questions %>
   <div class="text-center">
     <%= link_to "戻る", user_path(@user) ,class: "btn btn-outline-dark"%>
   </div>

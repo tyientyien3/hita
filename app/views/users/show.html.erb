@@ -1,18 +1,18 @@
     
     <ul class="nav nav-tabs">
-      <li class="nav-item card mt-3 mr-5">
-        <h2 class="nav-link active" data-toggle="tab" href="#ios">ユーザー情報</h2>
+      <li class="nav-item card mt-3">
+        <h2 class="nav-link active" data-toggle="tab" href="#profile">ユーザー情報</h2>
       </li>
-      <li class="nav-item card mt-3 mr-5">
-        <h2 class="nav-link" data-toggle="tab" href="#android">このユーザーへの質問一覧</h2>
+      <li class="nav-item card mt-3">
+        <h2 class="nav-link" data-toggle="tab" href="#questions">このユーザーへの質問一覧</h2>
       </li>
     </ul>
     <div class="tab-content mt-3">
-      <div id="ios" class="tab-pane active">
+      <div id="profile" class="tab-pane active">
         <%= render 'users/profile',user: @user, no_answers: @no_answers, country: @country, region: @region %>
       </div>
-      <div id="android" class="tab-pane">
-        <%= render 'countries/questions', pagenated_questions: @pagenated_questions %>
+      <div id="questions" class="tab-pane">
+        <%= render 'countries/questions', questions: @questions %>
       </div>
     </div>
 
