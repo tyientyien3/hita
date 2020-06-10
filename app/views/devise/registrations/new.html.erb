@@ -2,7 +2,7 @@
   <div class="col-md-10 offset-md-1">
     <div class="card">
       <h3 class="card-header">Get Start With Your Account</h3>
-      <div class="card-body ">
+      <div class="card-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           <div class="form-group">
@@ -47,6 +47,14 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="actions text-center mt-3">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.hidden_field :email, value: "hita@gmail.com" %>
+    <%= f.hidden_field :password, value: "testuser" %>
+    <%= f.submit "テストユーザーとして簡単ログイン", class:"btn btn-outline-success"%>
+  <% end %>
 </div>
 
 <%= stylesheet_link_tag 'devises' %>
