@@ -1,0 +1,62 @@
+  <%# 質問ボタン %>
+  <% if user != current_user %>
+  <%= link_to new_user_question_path(user) do %>
+    <div class="box-1 mx-auto mb-4">
+      <div class="btn btn-one">
+        <h3>ASK</h3>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="row">
+  <div class="col-5">
+    <div class="profile_img float-right">
+      <%= attachment_image_tag user, :profile_image, :fill, 250, 250, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+    </div>
+  </div>
+  <div class="col-5">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row">名前</th>
+          <td>
+            <%= user.username %>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">ステータス</th>
+          <td><%= user.user_status %></td>
+        </tr>
+        <tr>
+          <th scope="row">国</th>
+          <td><%= country.country_name %></td>
+        </tr>
+        <tr>
+          <th scope="row">都市</th>
+          <td><%= region.region_name %></td>
+        </tr>
+        <% if user == current_user %>
+          <tr>
+            <th scope="row">未回答の質問　</th>
+            <td>
+              <%= link_to no_answer_user_path(user), :style=>"color:#ff9500;" do %>
+                <i class="fas fa-arrow-alt-circle-right"></i><%= no_answers %>件
+              <% end %>
+            </td>
+          </tr>
+          <%= link_to  edit_user_path(user.id), class: "btn btn-outline-dark mb-2" do %>
+            <i class="fas fa-user-edit"></i>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="introduction w-75 mx-auto">
+  <h2 class="text-center">自己紹介</h2>
+  <div style="padding: 40px; margin-bottom: 10px; border: 5px double #333333; border-radius: 10px;">
+    <%= user.introduction %>
+  </div>
+</div>
+
+<%= stylesheet_link_tag 'users' %>

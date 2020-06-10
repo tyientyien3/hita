@@ -19,6 +19,11 @@
 header {
   border-bottom: solid 2px black;
   }
+
+  // フッター
+footer {
+  margin-top: 30px;
+}
 // 全体の背景
 body {
   font-family: 'Courier New', Courier, monospace;
@@ -75,3 +80,9 @@ h1 {
 .pagination>li>a:hover {        
   border-radius: 15px;  
 }
+
+.card {
+  color: black;
+  }
+  
+  

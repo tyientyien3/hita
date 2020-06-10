@@ -6,48 +6,41 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/0833763a83.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="container-fluid">
-      <header>
-        <%= render 'layouts/header' %>
-      </header>
-    </div>
+    <header class='sticky-top'>
+      <%= render 'layouts/header' %>
+    </header>
     <%# エラーメッセージ %>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <% if flash[:notice] %>
-            <div class="row">
-              <p class="text-success">
-                <%= flash[:notice]%>
-              </p>
-            </div>
-          <% elsif flash[:alert] %>
-            <div class="row">
-              <p class="text-danger">
-                <%= flash[:alert]%>
-              </p>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <% if flash[:notice] %>
+      <p class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= flash[:notice]%>
+        <%# メッセージ消すボタン %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </p>
+    <% elsif flash[:alert] %>
+      <p class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= flash[:alert]%>
+        <%# メッセージ消すボタン %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </p>
+    <% end %>
     <%# メイン %>
     <main>
-      <div class="container">
-        <div class="yield">
-          <%= yield %>
-        </div>
+      <div class="yield">
+        <%= yield %>
       </div>
     </main>
     <%# フッタ %>
-    <div class="container">
-      <footer>
-        <div class="copyright">
-          <p class="text-center">© 2020 HITA</p>
-        </div>
-      </footer>
-    </div>
+    <footer calss="sticky-bottom">
+      <div class="copyright">
+        <p class="text-center">© 2020 HITA</p>
+      </div>
+    </footer>
   </body>
 </html>

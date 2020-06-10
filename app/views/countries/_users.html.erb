@@ -1,0 +1,13 @@
+<div class="user">
+          <% @users.each do | user | %>
+            <%= link_to   user_path(user) do %>
+              <div class="user_box">
+                <div class="user_box_head">
+                  <span><%= user.country.country_name %>|<%= user.region.region_name %></span>
+                </div>
+                <span><%= user.username %></span>
+                <%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size: "50x50" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>

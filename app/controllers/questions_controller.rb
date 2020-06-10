@@ -42,7 +42,8 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      redirect_to action: "show", notice: "You have successfully answered the question."
+      @user = User.find(params[:user_id])
+      redirect_to user_path(@user), notice: "You have successfully answered the question."
     else
       flash[:alert] = "Save Error!"
       render :edit
